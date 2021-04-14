@@ -1,19 +1,15 @@
 <template>
   <div id="app">
-    <b-alert show>Default Alert</b-alert>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Wrapper></Wrapper>
+    <Sidebar></Sidebar>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Sidebar from "@/components/Sidebar.vue";
+import Wrapper from "@/components/Wrapper.vue";
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
-  },
+  components: { Sidebar, Wrapper },
 };
 </script>
 
@@ -24,5 +20,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #ffc05d;
+    }
+  }
 }
 </style>
