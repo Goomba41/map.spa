@@ -15,11 +15,14 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: #888;
+  font-family: "Lato", sans-serif;
+  font-size: 16pt;
+  font-weight: 400;
+  line-height: 1.75em;
+  background: #fff;
 }
 
 #nav {
