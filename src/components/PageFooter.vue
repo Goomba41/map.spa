@@ -2,9 +2,15 @@
   <section id="footer">
     <b-container>
       <ul class="copyright">
-        <li>© Untitled. All rights reserved.</li>
-        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-        <li>Demo Images: <a href="http://unsplash.com">Unsplash</a></li>
+        <li>© {{ copyrightString }} Untitled. Все права защищены.</li>
+        <li>
+          Дизайн:
+          <a href="https://goomba.ru">Бородавкин Антон Владимирович</a> c
+          <font-awesome-icon style="color: red" :icon="['fas', 'heart']" />
+        </li>
+      </ul>
+      <ul class="copyright">
+        <li>Копирование без указания источника запрещено</li>
       </ul>
     </b-container>
   </section>
@@ -15,7 +21,18 @@ export default {
   name: "PageFooter",
   props: {},
   data() {
-    return {};
+    return {
+      initYear: 2021,
+      currentYear: new Date().getFullYear(),
+    };
+  },
+  computed: {
+    copyrightString: function () {
+      if (this.currentYear > this.initYear) {
+        return this.initYear + " — " + this.currentYear;
+      }
+      return this.initYear;
+    },
   },
 };
 </script>

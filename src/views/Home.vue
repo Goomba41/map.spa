@@ -1,8 +1,17 @@
 <template>
   <div class="main">
     <section id="first">
-      <div class="image main">
-        <img src="../assets/banner.jpg" alt="banner image" />
+      <div v-swiper:mySwiper="swiperOption">
+        <div class="swiper-wrapper">
+          <div
+            class="swiper-slide image main"
+            data-position="center"
+            :key="banner"
+            v-for="banner in banners"
+          >
+            <img :src="require('@/assets/' + banner)" />
+          </div>
+        </div>
       </div>
       <b-container>
         <header class="major">
@@ -21,8 +30,28 @@
 </template>
 
 <script>
+// import carousel from "vue-owl-carousel";
+
 export default {
   name: "Home",
+  // components: { carousel },
+  data() {
+    return {
+      banners: ["banner.jpg", "banner2.jpg", "banner3.jpg"],
+      swiperOption: {
+        simulateTouch: false,
+        autoplay: {
+          delay: 5500,
+          disableOnInteraction: false,
+        },
+        // centeredSlides: true,
+        loop: true,
+        slidesPerView: 1,
+        effect: "fade",
+        speed: 2000,
+      },
+    };
+  },
 };
 </script>
 
@@ -53,6 +82,66 @@ header {
     line-height: 1.5em;
     position: relative;
     margin: 0 0 1.6875em 0;
+  }
+}
+
+.image {
+  border-radius: 5px;
+  border: 0;
+  display: inline-block;
+  position: relative;
+
+  &.main {
+    display: block;
+    height: 20em;
+    border-radius: 0;
+    img {
+      border-radius: 0;
+    }
+  }
+
+  img {
+    border-radius: 5px;
+    display: block;
+  }
+
+  &[data-position] {
+    img {
+      -moz-object-fit: cover;
+      -webkit-object-fit: cover;
+      -ms-object-fit: cover;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      // top: 0;
+      // left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &[data-position="center"] {
+    img {
+      -moz-object-position: center;
+      -webkit-object-position: center;
+      -ms-object-position: center;
+      object-position: center;
+    }
+  }
+  &[data-position="left"] {
+    img {
+      -moz-object-position: left;
+      -webkit-object-position: left;
+      -ms-object-position: left;
+      object-position: left;
+    }
+  }
+  &[data-position="right"] {
+    img {
+      -moz-object-position: right;
+      -webkit-object-position: right;
+      -ms-object-position: right;
+      object-position: right;
+    }
   }
 }
 </style>
