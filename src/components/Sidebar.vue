@@ -30,6 +30,7 @@ export default {
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
+@import "@/assets/styles/variables.scss";
 
 #sidebar {
   display: -moz-flex;
@@ -44,19 +45,21 @@ export default {
   -webkit-justify-content: space-between;
   -ms-justify-content: space-between;
   justify-content: space-between;
-  background: #4acaa8;
-  color: #d2f2e9;
+  background: $color-primary-default;
+  color: $color-text-alt;
   height: 100%;
   overflow-y: auto;
   position: fixed;
   text-align: center;
   top: 0;
-  width: 15rem;
+  // width: 15rem;
+  width: 23em;
   right: 0;
 
   @include media-breakpoint-down(xs) {
   }
   @include media-breakpoint-down(sm) {
+    width: 15em;
   }
   @include media-breakpoint-down(md) {
   }

@@ -17,4 +17,18 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import "@/assets/styles/variables.scss";
+#nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: &white;
+
+    &.router-link-exact-active {
+      color: $color-accent-default;
+    }
+  }
+}
+</style>

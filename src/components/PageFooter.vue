@@ -39,10 +39,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import "@/assets/styles/variables.scss";
 #footer {
-  background: #fafafa;
   border-top: 0;
-  color: #c0c0c0;
+  color: $color-text-default-lighter;
   overflow: hidden;
   padding: 4em 0 2em 0;
 
@@ -55,7 +55,7 @@ export default {
     justify-content: center;
 
     li {
-      border-left: solid 1px #d4d4d4;
+      border-left: solid 1px $color-border-default-darker;
       display: inline-block;
       font-size: 0.8em;
       margin-left: 1em;
@@ -65,23 +65,6 @@ export default {
         border-left: 0;
         margin-left: 0;
         padding-left: 0;
-      }
-
-      a {
-        color: inherit;
-        -moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-        -webkit-transition: color 0.2s ease-in-out,
-          border-color 0.2s ease-in-out;
-        -ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-        transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-        border-bottom: solid 1px #e4e4e4;
-        color: inherit;
-        text-decoration: none;
-
-        &:hover {
-          border-bottom-color: transparent;
-          color: #4acaa8 !important;
-        }
       }
     }
   }

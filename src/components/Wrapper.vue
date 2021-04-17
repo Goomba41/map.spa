@@ -19,8 +19,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import "@/assets/styles/variables.scss";
 #wrapper {
-  background: #fff;
-  padding-right: 15rem;
+  background: &white;
+  padding-right: 23em;
 }
 </style>
