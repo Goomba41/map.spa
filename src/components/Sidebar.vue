@@ -45,8 +45,8 @@ export default {
   -webkit-justify-content: space-between;
   -ms-justify-content: space-between;
   justify-content: space-between;
-  background: $color-primary-default;
-  color: $color-text-alt;
+  background: map-get($theme-colors, primary);
+  color: map-get($other-colors, text-alt);
   height: 100%;
   overflow-y: auto;
   position: fixed;

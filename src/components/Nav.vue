@@ -24,10 +24,10 @@ export default {
 
   a {
     font-weight: bold;
-    color: &white;
+    color: map-get($other-colors, white);
 
     &.router-link-exact-active {
-      color: $color-accent-default;
+      color: map-get($theme-colors, accent);
     }
   }
 }

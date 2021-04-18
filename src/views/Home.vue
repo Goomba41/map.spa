@@ -6,7 +6,7 @@
         <div class="swiper-wrapper">
           <div
             class="swiper-slide image main"
-            data-position="center"
+            data-position="right"
             :key="banner"
             v-for="banner in banners"
           >
@@ -36,10 +36,10 @@
       </b-container>
     </section>
     <!-- Section 1. End. -->
-    <!-- Section 2. Map possibilities or things marked on map. -->
+    <!-- Section 2. $map possibilities or things marked on $map. -->
     <section id="second">
       <b-container>
-        <h2>We marked some things on map for you</h2>
+        <h2>We marked some things on $map for you</h2>
         <p>
           Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
@@ -80,7 +80,82 @@
     <!-- Section 2. End. -->
     <!-- Section 3. Lates places and objects pages-->
     <section id="third">
-      <b-container> 3 </b-container>
+      <b-container>
+        <h2>Last things we added on site</h2>
+        <p>
+          Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
+          Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
+          faucibus commodo ac mi lacus.
+        </p>
+        <div class="last-list">
+          <article>
+            <a href="#" class="image">
+              <img src="../assets/images/pic01.webp" alt="" />
+            </a>
+            <div class="description">
+              <h4 class="line-clamp">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                ut dignissim odio, nec molestie mauris.
+              </h4>
+              <p class="line-clamp">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                erat magna, lacinia non leo congue, suscipit facilisis ex.
+                Praesent varius ipsum finibus faucibus tempor. Nullam dapibus
+                nibh ut ante venenatis, in congue erat varius. Nulla ac
+                tincidunt lorem, in cursus est. In risus metus, accumsan sit
+                amet vehicula sit amet, tincidunt id ligula. Vivamus tincidunt
+                at neque ac varius. Morbi eros nisl, accumsan vel malesuada
+                iaculis, sodales eu lorem. Maecenas in sem non ipsum lobortis
+                rhoncus. Nullam id vulputate massa. Pellentesque congue libero
+                vel elementum convallis.
+              </p>
+              <b-button
+                class="fit small"
+                variant="primary-alt"
+                :to="{ path: '/page-example' }"
+                >Read full article</b-button
+              >
+            </div>
+          </article>
+          <article>
+            <a href="#" class="image">
+              <img src="../assets/images/pic02.webp" alt="" />
+            </a>
+            <div class="description">
+              <h4 class="line-clamp">
+                Lorem ipsum dolor sit amet, consectetur.
+              </h4>
+              <p class="line-clamp">
+                Integer eu ante ornare amet commetus vestibulum blandit integer
+                in curae ac faucibus integer adipiscing ornare amet.
+              </p>
+              <b-button class="fit small" variant="secondary-alt">
+                Read full article
+              </b-button>
+            </div>
+          </article>
+          <article>
+            <a href="#" class="image">
+              <img src="../assets/images/pic03.webp" alt="" />
+            </a>
+            <div class="description">
+              <h4 class="line-clamp">
+                Lorem ipsum dolor sit amet, consectetur.
+              </h4>
+              <p class="line-clamp">
+                Integer eu ante ornare amet commetus vestibulum blandit integer
+                in curae ac faucibus integer adipiscing ornare amet.
+              </p>
+              <b-button
+                class="fit small"
+                variant="primary-alt"
+                :to="{ path: '/page-example' }"
+                >Read full article</b-button
+              >
+            </div>
+          </article>
+        </div>
+      </b-container>
     </section>
     <!-- Section 3. End. -->
   </div>
@@ -91,7 +166,7 @@ export default {
   name: "Home",
   data() {
     return {
-      banners: ["banner.jpg", "banner2.jpg", "banner3.jpg"],
+      banners: ["banner01.webp", "banner02.webp", "banner03.webp"],
       swiperOption: {
         simulateTouch: false,
         autoplay: {
@@ -115,7 +190,7 @@ export default {
 .main {
   section {
     &:not(:first-child) {
-      border-top: solid 6px $color-border-default;
+      border-top: solid 6px map-get($other-colors, border-default);
     }
   }
   .container {
@@ -124,14 +199,14 @@ export default {
 }
 
 h1 {
-  color: $color-primary-default;
+  color: map-get($theme-colors, primary);
   font-size: 3.5em;
   line-height: 1.5em;
   font-weight: 700;
   margin: 0 0 0.5625em 0;
 }
 h2 {
-  color: $color-text-default;
+  color: map-get($other-colors, text-default);
   font-size: 1.75em;
   font-weight: 700;
   line-height: 1.5em;
@@ -214,6 +289,15 @@ header {
     justify-content: left;
     align-items: center;
     width: 50%;
+    cursor: default;
+
+    &:hover {
+      .icon {
+        border: solid 0.08em map-get($theme-colors, primary);
+        background-color: transparent;
+        color: map-get($theme-colors, primary);
+      }
+    }
 
     .icon {
       -moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
@@ -222,17 +306,64 @@ header {
       transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
       width: 1.25em;
       height: 1.25em;
-      background-color: $color-primary-default;
+      background-color: map-get($theme-colors, primary);
       color: white;
       font-size: 3rem;
       padding: 0.8rem;
       border: solid 0.08em transparent;
       border-radius: 100%;
       margin-right: 1rem;
-      &:hover {
-        border: solid 0.08em $color-primary-default;
-        background-color: transparent;
-        color: $color-primary-default;
+    }
+  }
+}
+
+.last-list {
+  article {
+    &:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+    border-top: solid 3px map-get($other-colors, border-default);
+    margin-bottom: 2.25em;
+    padding-top: 2.25em;
+    display: flex;
+    .image {
+      display: inline-block;
+      padding-right: 2.5em;
+      vertical-align: middle;
+      width: 50%;
+      img {
+        display: block;
+        width: 100%;
+        -moz-transition: filter 0.2s ease-in-out;
+        -webkit-transition: filter 0.2s ease-in-out;
+        -ms-transition: filter 0.2s ease-in-out;
+        transition: filter 0.2s ease-in-out;
+        &:hover {
+          filter: saturate(200%);
+        }
+      }
+    }
+    .description {
+      display: inline-flex;
+      vertical-align: middle;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 13.9em;
+      width: 50%;
+      p {
+        &.line-clamp {
+          @include shorten-text(3, 1.75em);
+        }
+      }
+      h4 {
+        font-size: 1.25em;
+        &.line-clamp {
+          @include shorten-text(2, 1.5em);
+        }
+      }
+      &:last-child {
+        margin: 0;
       }
     }
   }

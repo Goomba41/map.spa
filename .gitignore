@@ -1,6 +1,7 @@
 # Project specific
 .sass-lint.yml
 .prettierignore
+src/assets/images/*
 
 # Logs
 logs

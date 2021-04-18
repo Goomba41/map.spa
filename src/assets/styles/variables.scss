@@ -1,17 +1,27 @@
-$color-white: #fff;
-$color-text-default: #777;
-$color-text-default-lighter: #c0c0c0;
-$color-text-alt: #d2f2e9;
-$color-link-underline-default: #e4e4e4;
-$color-border-default: #f4f4f4;
-$color-border-default-darker: #d4d4d4;
-$color-primary-lightest: #95e4ce;
-$color-primary-lighter: #78e4c6;
-$color-primary-default: #4acaa7;
-$color-primary-darker: #509884	;
-$color-primary-darkest: #188366;
-$color-accent-lightest: #ffc6a6;
-$color-accent-lighter: #ffb286;
-$color-accent-default: #ff985d;
-$color-accent-darker: #bf8564;
-$color-accent-darkest: #a64f1e;
+$other-colors: (
+  'white': #fff,
+  'text-default': #777,
+  'text-default-lighter': #c0c0c0,
+  'text-alt': #d2f2e9,
+  'link-underline-default': #e4e4e4,
+  'border-default': #f4f4f4,
+  'border-default-darker': #d4d4d4,
+);
+
+$theme-colors: (
+  'primary': #4acaa7,
+  'secondary': #777,
+  'accent': #ff985d,
+);
+
+@mixin shorten-text($strings-number, $line-height) {
+  // sass-lint:disable no-vendor-prefixes
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $strings-number;
+  display: -webkit-box;
+  height: $strings-number * $line-height;
+  line-height: $line-height;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+}

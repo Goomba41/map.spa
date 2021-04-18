@@ -21,7 +21,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/styles/variables.scss";
 #wrapper {
-  background: &white;
+  background: map-get($other-colors, "white");
   padding-right: 23em;
 }
 </style>

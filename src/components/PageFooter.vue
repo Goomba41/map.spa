@@ -42,7 +42,7 @@ export default {
 @import "@/assets/styles/variables.scss";
 #footer {
   border-top: 0;
-  color: $color-text-default-lighter;
+  color: map-get($other-colors, "text-default-lighter");
   overflow: hidden;
   padding: 4em 0 2em 0;
 
@@ -55,7 +55,7 @@ export default {
     justify-content: center;
 
     li {
-      border-left: solid 1px $color-border-default-darker;
+      border-left: solid 1px map-get($other-colors, "border-default-darker");
       display: inline-block;
       font-size: 0.8em;
       margin-left: 1em;

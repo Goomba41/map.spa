@@ -4,35 +4,101 @@
   url('assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
 }
 
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
 @import '@/assets/styles/variables';
 
 .app {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  color: $color-text-default;
-  background: $color-white;
+  background: map-get($other-colors, 'white');
+  color: map-get($other-colors, text-default);
   font-family: 'Lato', sans-serif;
   font-size: 16pt;
   font-weight: 400;
   line-height: 1.75em;
 }
 
+.container {
+  @include media-breakpoint-up(sm) {
+    max-width: 540px;
+  }
+  @include media-breakpoint-up(md) {
+    max-width: 720px;
+  }
+  @include media-breakpoint-up(lg) {
+    max-width: 960px;
+  }
+  @include media-breakpoint-up(xl) {
+    max-width: 1140px;
+  }
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+}
+
 a {
-  -moz-transition: color .2s ease-in-out, border-color .2s ease-in-out;
-  -webkit-transition: color .2s ease-in-out, border-color .2s ease-in-out;
-  -ms-transition: color .2s ease-in-out, border-color .2s ease-in-out;
-  border-bottom: solid 1px $color-link-underline-default;
+  border-bottom: solid 1px map-get($other-colors, link-underline-default);
   color: inherit;
   transition: color .2s ease-in-out, border-color .2s ease-in-out;
 
-
   &:hover {
     border-bottom-color: transparent;
-    color: $color-primary-default;
+    color: map-get($theme-colors, primary);
     text-decoration: none;
   }
 }
 
 p {
   margin: 0 0 2.25em;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 700;
+  height: 2.75em;
+  line-height: 2.75em;
+  padding: 0 1.5em;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  white-space: nowrap;
+
+  &.fit {
+    width: 100%;
+  }
+
+  &.small {
+    font-size: .8em;
+  }
+}
+
+@each $colorname, $color in $theme-colors {
+  .btn-#{$colorname} {
+    background-color: $color;
+    color: map-get($other-colors, 'white');
+
+    &:hover {
+      background-color: map-get($other-colors, 'white');
+      box-shadow: inset 0 0 0 2px $color;
+      color: $color;
+    }
+  }
+
+  .btn-#{$colorname}-alt {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 2px $color;
+    color: $color;
+
+    &:hover {
+      background-color: $color;
+      border-color: $color;
+      color: map-get($other-colors, 'white');
+    }
+  }
 }
