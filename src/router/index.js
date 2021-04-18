@@ -45,6 +45,28 @@ const routes = [
       ],
     },
   },
+  {
+    path: "/page-example",
+    name: "Object",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Object.vue"),
+    meta: {
+      title: "Example of object page - Example App",
+      metaTags: [
+        {
+          name: "description",
+          content: "The example of object page of our example app.",
+        },
+        {
+          property: "og:description",
+          content: "The example of object page of our example app.",
+        },
+      ],
+    },
+  },
 ];
 
 const router = new VueRouter({

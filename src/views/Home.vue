@@ -39,7 +39,7 @@
     <!-- Section 2. $map possibilities or things marked on $map. -->
     <section id="second">
       <b-container>
-        <h2>We marked some things on $map for you</h2>
+        <h2>We marked some things on map for you</h2>
         <p>
           Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
@@ -111,7 +111,7 @@
               </p>
               <b-button
                 class="fit small"
-                variant="primary-alt"
+                variant="secondary-alt"
                 :to="{ path: '/page-example' }"
                 >Read full article</b-button
               >
@@ -146,11 +146,10 @@
                 Integer eu ante ornare amet commetus vestibulum blandit integer
                 in curae ac faucibus integer adipiscing ornare amet.
               </p>
-              <b-button
-                class="fit small"
-                variant="primary-alt"
-                :to="{ path: '/page-example' }"
-                >Read full article</b-button
+              <router-link :to="{ name: 'Object', params: {} }">
+                <b-button class="fit small" variant="secondary-alt"
+                  >Read full article</b-button
+                ></router-link
               >
             </div>
           </article>
@@ -158,12 +157,80 @@
       </b-container>
     </section>
     <!-- Section 3. End. -->
+    <!-- Section 4. Leaflet map-->
+    <section id="fourth">
+      <b-container>
+        <h2>We present you... our map!</h2>
+        <p>
+          Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
+          Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
+          faucibus commodo ac mi lacus.
+        </p>
+        <Map></Map>
+      </b-container>
+    </section>
+    <!-- Section 4. End. -->
+    <!-- Section 5. Feedback form-->
+    <section id="fifth">
+      <b-container>
+        <h2>Contact us</h2>
+        <p>
+          Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
+          Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
+          faucibus commodo ac mi lacus.
+        </p>
+
+        <form method="post" class="feedback" action="#">
+          <div class="row gtr-uniform">
+            <div class="col-6 col-12-xsmall">
+              <input type="text" name="name" id="name" placeholder="Name" />
+            </div>
+            <div class="col-6 col-12-xsmall">
+              <input type="email" name="email" id="email" placeholder="Email" />
+            </div>
+            <div class="col-12">
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                placeholder="Subject"
+              />
+            </div>
+            <div class="col-12">
+              <textarea
+                name="message"
+                id="message"
+                placeholder="Message"
+                rows="6"
+              ></textarea>
+            </div>
+            <div class="col-12">
+              <ul class="actions">
+                <li>
+                  <b-button type="submit" variant="primary"
+                    >Send Message</b-button
+                  >
+                </li>
+                <li>
+                  <b-button type="reset" variant="secondary-alt"
+                    >Reset Form</b-button
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </form>
+      </b-container>
+    </section>
+    <!-- Section 5. End. -->
   </div>
 </template>
 
 <script>
+import Map from "@/components/LeafletMap.vue";
 export default {
   name: "Home",
+  components: { Map },
   data() {
     return {
       banners: ["banner01.webp", "banner02.webp", "banner03.webp"],
@@ -177,7 +244,7 @@ export default {
         loop: true,
         slidesPerView: 1,
         effect: "fade",
-        speed: 2000,
+        speed: 500,
       },
     };
   },
@@ -231,6 +298,7 @@ header {
     border-radius: 0;
     img {
       border-radius: 0;
+      transform: scale(1.05);
     }
   }
 
@@ -276,6 +344,15 @@ header {
     }
   }
 }
+
+img {
+  .swiper-slide-active & {
+    animation: zoomIn 6s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+}
+
 .features {
   list-style: none;
   padding-left: 0;
@@ -366,6 +443,15 @@ header {
         margin: 0;
       }
     }
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
   }
 }
 </style>

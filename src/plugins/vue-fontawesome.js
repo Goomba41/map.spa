@@ -10,6 +10,8 @@ import {
   faChurch,
   faBasketballBall,
   faMapMarkedAlt,
+  faSearchLocation,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import { faVk } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -23,7 +25,9 @@ library.add(
   faTree,
   faChurch,
   faBasketballBall,
-  faMapMarkedAlt
+  faMapMarkedAlt,
+  faSearch,
+  faSearchLocation
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
