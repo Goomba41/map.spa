@@ -6,11 +6,29 @@
       value=""
       class="map-search"
       placeholder="Search"
+      @input="searchRequest"
+      @focus="searchResultToggle"
+      @blur="searchResultToggle"
     />
-    <div id="results-wrapper" class="results-wrapper shadow">
-      <div id="results" class="results">
-        <div class="result-none">Ничего не найдено ಠ╭╮ಠ</div>
+    <div
+      id="search-results"
+      :class="[searchResult.active ? 'active' : '', 'search-results shadow']"
+    >
+      <div
+        v-if="
+          typeof searchResult.results !== 'undefined' &&
+          searchResult.results.length > 0
+        "
+      >
+        <div
+          class="result"
+          v-for="result in searchResult.results"
+          :key="result"
+        >
+          {{ result }}
+        </div>
       </div>
+      <div v-else><div class="result">Ничего не найдено ಠ╭╮ಠ</div></div>
     </div>
     <l-map
       class="map shadow"
@@ -57,6 +75,23 @@ export default {
   props: {
     msg: String,
   },
+  methods: {
+    searchRequest(value) {
+      console.log(value);
+      this.searchData.forEach((element) => {
+        if (element === value) {
+          this.searchResult.results.push(element);
+        }
+        // } else {
+        //   this.searchResult.results = [];
+        // }
+      });
+      console.log(this.searchResult);
+    },
+    searchResultToggle() {
+      this.searchResult.active = !this.searchResult.active;
+    },
+  },
   data() {
     return {
       zoom: 13,
@@ -72,66 +107,78 @@ export default {
         zoomSnap: 0.5,
       },
       showMap: true,
+      searchData: ["name1", "name2", "name3", "name4"],
+      searchResult: { active: false, results: [] },
     };
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-/* @import "@/assets/styles/variables.scss"; */
+<style lang="scss" scoped>
+@import "@/assets/styles/variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 .map {
   width: 100%;
   height: 80vh;
 }
 
-.results-wrapper {
+.search-results {
   visibility: hidden;
   opacity: 0;
   display: flex;
+  flex-flow: column;
   position: absolute;
-  background-color: #f0f4f4;
-  width: 1400px;
-  z-index: 1000;
+  background-color: map-get($other-colors, border-default);
+  z-index: 1001;
   border-radius: 5px;
-  margin-top: 0.5rem;
-  border-top: 1px solid #e0e0e0;
-  -webkit-transition: all 0.2s linear;
+  margin-top: -1.75em;
   transition: all 0.2s linear;
+  max-height: 3.25 * 3em;
+  overflow: auto;
+  width: 100%;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @include media-breakpoint-up(sm) {
+    max-width: 540px;
+  }
+  @include media-breakpoint-up(md) {
+    max-width: 720px;
+  }
+  @include media-breakpoint-up(lg) {
+    max-width: 960px;
+  }
+  @include media-breakpoint-up(xl) {
+    max-width: 1140px;
+  }
 }
 
-.results {
-  display: flex;
-  flex-flow: column;
+.result {
   width: 100%;
-  max-height: 200px;
-  overflow: auto;
+  height: 3.25em;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.result-none {
-  display: flex;
-  flex-flow: row;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
   padding: 1rem;
-  cursor: not-allowed;
+  transition: background-color 0.2s linear;
+  &:not(:last-child) {
+    border-bottom: 1px solid darken(map-get($other-colors, border-default), 10%);
+  }
+  &:hover {
+    background-color: lighten(map-get($other-colors, border-default), 10%);
+  }
 }
 
-.result:first-child,
 .result-none {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-.result:last-child,
-.result-none {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  cursor: not-allowed;
 }
 </style>
