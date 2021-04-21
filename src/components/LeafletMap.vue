@@ -77,16 +77,13 @@ export default {
   },
   methods: {
     searchRequest(value) {
-      console.log(value);
+      var list = [];
       this.searchData.forEach((element) => {
-        if (element === value) {
-          this.searchResult.results.push(element);
+        if (element.indexOf(value) !== -1) {
+          list.push(element);
         }
-        // } else {
-        //   this.searchResult.results = [];
-        // }
       });
-      console.log(this.searchResult);
+      this.searchResult.results = list;
     },
     searchResultToggle() {
       this.searchResult.active = !this.searchResult.active;
@@ -124,6 +121,10 @@ export default {
 .map {
   width: 100%;
   height: 80vh;
+}
+
+.map-search {
+  margin-bottom: 2.25em;
 }
 
 .search-results {

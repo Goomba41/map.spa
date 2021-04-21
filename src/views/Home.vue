@@ -36,7 +36,7 @@
       </b-container>
     </section>
     <!-- Section 1. End. -->
-    <!-- Section 2. $map possibilities or things marked on $map. -->
+    <!-- Section 2. Map possibilities or things marked on $map. -->
     <section id="second">
       <b-container>
         <h2>We marked some things on map for you</h2>
@@ -109,6 +109,14 @@
                 rhoncus. Nullam id vulputate massa. Pellentesque congue libero
                 vel elementum convallis.
               </p>
+              <div class="signature">
+                <span>Елена Чудиновских<br />(2021-04-01)</span>
+                <img
+                  src="../assets/images/author01.webp"
+                  class="author"
+                  alt=""
+                />
+              </div>
               <b-button
                 class="fit small"
                 variant="secondary-alt"
@@ -129,6 +137,14 @@
                 Integer eu ante ornare amet commetus vestibulum blandit integer
                 in curae ac faucibus integer adipiscing ornare amet.
               </p>
+              <div class="signature">
+                <span>Владимир Жаравин<br />(2021-04-01)</span>
+                <img
+                  src="../assets/images/author02.webp"
+                  class="author"
+                  alt=""
+                />
+              </div>
               <b-button class="fit small" variant="secondary-alt">
                 Read full article
               </b-button>
@@ -146,6 +162,14 @@
                 Integer eu ante ornare amet commetus vestibulum blandit integer
                 in curae ac faucibus integer adipiscing ornare amet.
               </p>
+              <div class="signature">
+                <span>Антон Бородавкин<br />(2021-04-01)</span>
+                <img
+                  src="../assets/images/author03.webp"
+                  class="author"
+                  alt=""
+                />
+              </div>
               <router-link :to="{ name: 'Object', params: {} }">
                 <b-button class="fit small" variant="secondary-alt"
                   >Read full article</b-button
@@ -170,8 +194,20 @@
       </b-container>
     </section>
     <!-- Section 4. End. -->
-    <!-- Section 5. Feedback form-->
+    <!-- Section 5. Authors-->
     <section id="fifth">
+      <b-container>
+        <h2>Project authors</h2>
+        <p>
+          Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
+          Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
+          faucibus commodo ac mi lacus.
+        </p>
+      </b-container>
+    </section>
+    <!-- Section 5. End. -->
+    <!-- Section 6. Feedback form-->
+    <section id="sixth">
       <b-container>
         <h2>Contact us</h2>
         <p>
@@ -180,49 +216,47 @@
           faucibus commodo ac mi lacus.
         </p>
 
-        <form method="post" class="feedback" action="#">
-          <div class="row gtr-uniform">
-            <div class="col-6 col-12-xsmall">
-              <input type="text" name="name" id="name" placeholder="Name" />
-            </div>
-            <div class="col-6 col-12-xsmall">
-              <input type="email" name="email" id="email" placeholder="Email" />
-            </div>
-            <div class="col-12">
-              <input
-                type="text"
-                name="subject"
-                id="subject"
-                placeholder="Subject"
-              />
-            </div>
-            <div class="col-12">
-              <textarea
-                name="message"
-                id="message"
-                placeholder="Message"
-                rows="6"
-              ></textarea>
-            </div>
-            <div class="col-12">
-              <ul class="actions">
-                <li>
-                  <b-button type="submit" variant="primary"
-                    >Send Message</b-button
-                  >
-                </li>
-                <li>
-                  <b-button type="reset" variant="secondary-alt"
-                    >Reset Form</b-button
-                  >
-                </li>
-              </ul>
-            </div>
+        <form method="post" class="feedback row" action="#">
+          <!-- <div class=""> -->
+          <div class="col-6 col-12-xsmall">
+            <input type="text" name="name" id="name" placeholder="Name" />
           </div>
+          <div class="col-6 col-12-xsmall">
+            <input type="email" name="email" id="email" placeholder="Email" />
+          </div>
+          <div class="col-12">
+            <input
+              type="text"
+              name="subject"
+              id="subject"
+              placeholder="Subject"
+            />
+          </div>
+          <div class="col-12">
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Message"
+              rows="6"
+            ></textarea>
+          </div>
+          <div class="col-12">
+            <ul class="actions">
+              <li>
+                <b-button type="submit" variant="primary"
+                  >Send Message</b-button
+                >
+              </li>
+              <li>
+                <b-button type="reset" variant="secondary">Reset Form</b-button>
+              </li>
+            </ul>
+          </div>
+          <!-- </div> -->
         </form>
       </b-container>
     </section>
-    <!-- Section 5. End. -->
+    <!-- Section 6. End. -->
   </div>
 </template>
 
@@ -253,6 +287,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 @import "@/assets/styles/variables.scss";
 .main {
   section {
@@ -287,11 +324,6 @@ header {
 }
 
 .image {
-  border-radius: 5px;
-  border: 0;
-  display: inline-block;
-  position: relative;
-
   &.main {
     display: block;
     height: 20em;
@@ -300,11 +332,6 @@ header {
       border-radius: 0;
       transform: scale(1.05);
     }
-  }
-
-  img {
-    border-radius: 5px;
-    display: block;
   }
 
   &[data-position] {
@@ -408,8 +435,8 @@ img {
       display: inline-block;
       padding-right: 2.5em;
       vertical-align: middle;
-      width: 50%;
-      img {
+      width: 60%;
+      > img {
         display: block;
         width: 100%;
         -moz-transition: filter 0.2s ease-in-out;
@@ -429,6 +456,7 @@ img {
       min-height: 13.9em;
       width: 50%;
       p {
+        margin: 0;
         &.line-clamp {
           @include shorten-text(3, 1.75em);
         }
@@ -452,6 +480,94 @@ img {
   }
   to {
     transform: scale(1.05);
+  }
+}
+
+textarea {
+  min-height: 15em;
+  max-height: 30em;
+  padding: 0.75em 1em;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-items: stretch;
+
+  ul {
+    &.actions {
+      display: flex;
+      cursor: default;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        padding-right: 2em;
+      }
+    }
+  }
+
+  .col-6 {
+    width: 50%;
+    @include media-breakpoint-down(sm) {
+      padding: 0 1.25em;
+    }
+    @include media-breakpoint-down(md) {
+    }
+    @include media-breakpoint-down(lg) {
+    }
+    @include media-breakpoint-down(xl) {
+    }
+    padding: 0 2em 2em 0;
+    &:nth-child(2n) {
+      padding: 0 0 2em 0;
+    }
+  }
+
+  .col-12 {
+    width: 100%;
+    @include media-breakpoint-down(sm) {
+      // padding: 0 1.25em;
+    }
+    @include media-breakpoint-down(md) {
+    }
+    @include media-breakpoint-down(lg) {
+    }
+    @include media-breakpoint-down(xl) {
+    }
+    &:not(:last-child) {
+      padding: 0 0 2em 0;
+    }
+  }
+
+  .col-12-xsmall {
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+    @include media-breakpoint-down(md) {
+    }
+    @include media-breakpoint-down(lg) {
+    }
+    @include media-breakpoint-down(xl) {
+    }
+  }
+}
+
+.signature {
+  margin: 1em 0;
+  display: flex;
+  font-size: 0.7em;
+  align-items: center;
+  text-align: right;
+  justify-content: flex-end;
+  span {
+    line-height: 1.5em;
+  }
+  .author {
+    width: 10%;
+    border-radius: 50%;
+    margin-left: 1em;
   }
 }
 </style>
