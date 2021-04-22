@@ -2,7 +2,7 @@
   <div class="main">
     <!-- Section 1. Image gallery, header with headings 1 and 2 level, description. -->
     <section id="first">
-      <div v-swiper:mySwiper="swiperOption">
+      <div v-swiper="swiperOptionMain" instance-name="firstSwiper">
         <div class="swiper-wrapper">
           <div
             class="swiper-slide image main"
@@ -203,6 +203,26 @@
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
           faucibus commodo ac mi lacus.
         </p>
+        <div
+          v-swiper="swiperOptionAuthors"
+          instance-name="secondSwiper"
+          :class="'authors'"
+        >
+          <div class="swiper-wrapper">
+            <div
+              class="swiper-slide author"
+              data-position="center"
+              :key="author.id"
+              v-for="author in authors"
+            >
+              <img
+                class="image"
+                :src="require('@/assets/images/' + author.photo)"
+              />
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
       </b-container>
     </section>
     <!-- Section 5. End. -->
@@ -265,10 +285,41 @@ import Map from "@/components/LeafletMap.vue";
 export default {
   name: "Home",
   components: { Map },
+  mounted() {},
   data() {
     return {
       banners: ["banner01.webp", "banner02.webp", "banner03.webp"],
-      swiperOption: {
+      authors: [
+        {
+          id: 1,
+          photo: "author01.webp",
+          f: "Чудиновских",
+          i: "Елена",
+          o: "Николаевна",
+          status: "Автор статей, фотограф",
+          actions: "Написание статей, поездки по области и фото.",
+        },
+        {
+          id: 2,
+          photo: "author02.webp",
+          f: "Жаравин",
+          i: "Владимир",
+          o: "Сергеевич",
+          status: "Автор статей, историк",
+          actions: "Написание статей, подбор материалов и работа в архиве.",
+        },
+        {
+          id: 3,
+          photo: "author03.webp",
+          f: "Бородавкин",
+          i: "Антон",
+          o: "Владимирович",
+          status: "Автор проекта, программист",
+          actions:
+            "Дизайн и бэкенд, техническая реализация и содержание сайта.",
+        },
+      ],
+      swiperOptionMain: {
         simulateTouch: false,
         autoplay: {
           delay: 5500,
@@ -279,6 +330,23 @@ export default {
         slidesPerView: 1,
         effect: "fade",
         speed: 500,
+      },
+      swiperOptionAuthors: {
+        // // simulateTouch: false,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        centeredSlides: true,
+        loop: true,
+        slidesPerView: 2,
+        effect: "slide",
+        speed: 500,
+        spaceBetween: 30,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
       },
     };
   },
@@ -306,13 +374,13 @@ h1 {
   color: map-get($theme-colors, primary);
   font-size: 3.5em;
   line-height: 1.5em;
-  font-weight: 700;
+  font-family: "Ubuntu Bold";
   margin: 0 0 0.5625em 0;
 }
 h2 {
   color: map-get($other-colors, text-default);
   font-size: 1.75em;
-  font-weight: 700;
+  font-family: "Ubuntu Medium";
   line-height: 1.5em;
   position: relative;
   margin: 0 0 0.5625em 0;
@@ -373,7 +441,7 @@ header {
 }
 
 img {
-  .swiper-slide-active & {
+  .swiper-slide-active.main & {
     animation: zoomIn 6s;
     animation-timing-function: linear;
     animation-fill-mode: forwards;
@@ -462,6 +530,7 @@ img {
         }
       }
       h4 {
+        font-family: "Ubuntu Medium";
         font-size: 1.25em;
         &.line-clamp {
           @include shorten-text(2, 1.5em);
@@ -562,12 +631,29 @@ textarea {
   text-align: right;
   justify-content: flex-end;
   span {
+    font-family: "Ubuntu Light Italic";
     line-height: 1.5em;
   }
   .author {
     width: 10%;
     border-radius: 50%;
     margin-left: 1em;
+  }
+}
+
+.swiper-container {
+  &.authors {
+    width: 100%;
+    height: 20em;
+  }
+  .author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 35%;
+      border-radius: 100%;
+    }
   }
 }
 </style>
