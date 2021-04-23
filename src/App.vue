@@ -2,6 +2,9 @@
   <div id="app" class="app">
     <Wrapper></Wrapper>
     <Sidebar></Sidebar>
+    <a href="#" title="System sign in" class="sign-in-link">
+      <font-awesome-icon :icon="['fas', 'user-secret']" />
+    </a>
   </div>
 </template>
 
@@ -16,4 +19,15 @@ export default {
 
 <style lang="scss">
 @import "@/assets/styles/coreStyle.scss";
+@import "@/assets/styles/variables.scss";
+.sign-in-link {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: 0;
+  margin: 0 1em 0.5em 0;
+  &:hover {
+    color: lighten(map-get($other-colors, text-default), 20%);
+  }
+}
 </style>

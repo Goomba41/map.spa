@@ -29,7 +29,7 @@ header {
   -webkit-flex-shrink: 0;
   -ms-flex-shrink: 0;
   flex-shrink: 0;
-  padding: 3em;
+  padding: 2.5em 3em;
   p {
     color: lighten(map-get($theme-colors, primary), 30%);
     font-style: italic;

@@ -89,7 +89,7 @@
 }
 
 a {
-  border-bottom: solid 1px map-get($other-colors, link-underline-default);
+  border-bottom: solid 2px lighten(map-get($theme-colors, primary), 15%);
   color: inherit;
   transition: color .2s ease-in-out, border-color .2s ease-in-out;
 
@@ -97,6 +97,18 @@ a {
     border-bottom-color: transparent;
     color: map-get($theme-colors, primary);
     text-decoration: none;
+  }
+
+  &.alt {
+    border-bottom: solid 1px map-get($other-colors, link-underline-default);
+    color: map-get($other-colors, text-alt);
+    transition: color .2s ease-in-out, border-color .2s ease-in-out;
+
+    &:hover {
+      border-bottom-color: transparent;
+      color: map-get($other-colors, 'white');
+      text-decoration: none;
+    }
   }
 }
 
@@ -190,7 +202,15 @@ textarea {
 
 .shadow {
   // sass-lint:disable no-color-literals
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .35);
+}
+
+.signature,
+.author {
+  img {
+    // sass-lint:disable no-color-literals
+    box-shadow: 0 .4rem 1rem rgba(0, 0, 0, .55);
+  }
 }
 
 .image {

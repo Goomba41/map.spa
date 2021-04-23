@@ -12,8 +12,15 @@ import {
   faMapMarkedAlt,
   faSearchLocation,
   faSearch,
+  faEnvelopeOpenText,
+  faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { faVk } from "@fortawesome/free-brands-svg-icons";
+import {
+  faVk,
+  faGithub,
+  faInstagram,
+  faTelegram,
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(
@@ -27,7 +34,12 @@ library.add(
   faBasketballBall,
   faMapMarkedAlt,
   faSearch,
-  faSearchLocation
+  faSearchLocation,
+  faGithub,
+  faInstagram,
+  faEnvelopeOpenText,
+  faUserCircle,
+  faTelegram
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);

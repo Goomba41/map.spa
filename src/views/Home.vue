@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <!-- Section 1. Image gallery, header with headings 1 and 2 level, description. -->
-    <section id="first">
+    <section id="top">
       <div v-swiper="swiperOptionMain" instance-name="firstSwiper">
         <div class="swiper-wrapper">
           <div
@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <b-container>
+      <b-container id="about">
         <header class="major">
           <h1>Walk around Kirov city</h1>
           <h2>
@@ -37,7 +37,7 @@
     </section>
     <!-- Section 1. End. -->
     <!-- Section 2. Map possibilities or things marked on $map. -->
-    <section id="second">
+    <section id="marked">
       <b-container>
         <h2>We marked some things on map for you</h2>
         <p>
@@ -79,18 +79,23 @@
     </section>
     <!-- Section 2. End. -->
     <!-- Section 3. Lates places and objects pages-->
-    <section id="third">
+    <section id="last-list">
       <b-container>
         <h2>Last things we added on site</h2>
         <p>
           Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
-          faucibus commodo ac mi lacus.
+          faucibus commodo ac mi lacus. Full list of added places you can view
+          <router-link :to="{ name: 'Places', params: {} }">here</router-link>
         </p>
         <div class="last-list">
           <article>
             <a href="#" class="image">
-              <img src="../assets/images/pic01.webp" alt="" />
+              <img
+                src="../assets/images/pic01.webp"
+                alt=""
+                class="shadow-author"
+              />
             </a>
             <div class="description">
               <h4 class="line-clamp">
@@ -113,7 +118,7 @@
                 <span>Елена Чудиновских<br />(2021-04-01)</span>
                 <img
                   src="../assets/images/author01.webp"
-                  class="author"
+                  class="author shadow"
                   alt=""
                 />
               </div>
@@ -127,7 +132,7 @@
           </article>
           <article>
             <a href="#" class="image">
-              <img src="../assets/images/pic02.webp" alt="" />
+              <img src="../assets/images/pic02.webp" alt="" class="shadow" />
             </a>
             <div class="description">
               <h4 class="line-clamp">
@@ -141,7 +146,7 @@
                 <span>Владимир Жаравин<br />(2021-04-01)</span>
                 <img
                   src="../assets/images/author02.webp"
-                  class="author"
+                  class="author shadow"
                   alt=""
                 />
               </div>
@@ -152,7 +157,7 @@
           </article>
           <article>
             <a href="#" class="image">
-              <img src="../assets/images/pic03.webp" alt="" />
+              <img src="../assets/images/pic03.webp" alt="" class="shadow" />
             </a>
             <div class="description">
               <h4 class="line-clamp">
@@ -166,14 +171,15 @@
                 <span>Антон Бородавкин<br />(2021-04-01)</span>
                 <img
                   src="../assets/images/author03.webp"
-                  class="author"
+                  class="author shadow"
                   alt=""
                 />
               </div>
-              <router-link :to="{ name: 'Object', params: {} }">
-                <b-button class="fit small" variant="secondary-alt"
-                  >Read full article</b-button
-                ></router-link
+              <b-button
+                :to="{ name: 'Object', params: {} }"
+                class="fit small"
+                variant="secondary-alt"
+                >Read full article</b-button
               >
             </div>
           </article>
@@ -182,7 +188,7 @@
     </section>
     <!-- Section 3. End. -->
     <!-- Section 4. Leaflet map-->
-    <section id="fourth">
+    <section id="map">
       <b-container>
         <h2>We present you... our map!</h2>
         <p>
@@ -195,7 +201,7 @@
     </section>
     <!-- Section 4. End. -->
     <!-- Section 5. Authors-->
-    <section id="fifth">
+    <section id="authors">
       <b-container>
         <h2>Project authors</h2>
         <p>
@@ -219,6 +225,12 @@
                 class="image"
                 :src="require('@/assets/images/' + author.photo)"
               />
+              <p>
+                <b>{{ author.f }}</b
+                ><br />{{ author.i }} {{ author.o }}
+              </p>
+              <p>{{ author.status }}</p>
+              <p>{{ author.actions }}</p>
             </div>
           </div>
           <div class="swiper-pagination"></div>
@@ -227,7 +239,7 @@
     </section>
     <!-- Section 5. End. -->
     <!-- Section 6. Feedback form-->
-    <section id="sixth">
+    <section id="feedback">
       <b-container>
         <h2>Contact us</h2>
         <p>
@@ -332,9 +344,9 @@ export default {
         speed: 500,
       },
       swiperOptionAuthors: {
-        // // simulateTouch: false,
+        // simulateTouch: false,
         autoplay: {
-          delay: 2500,
+          delay: 3500,
           disableOnInteraction: false,
         },
         centeredSlides: true,
@@ -650,9 +662,30 @@ textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 95%;
+    opacity: 0.5;
+    filter: blur(3px);
+    cursor: default;
+    user-select: none;
+    transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
     img {
       width: 35%;
       border-radius: 100%;
+      margin-bottom: 1.25em;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 1em;
+      &:not(:first-of-type) {
+        font-size: 10pt;
+        line-height: 1.25em;
+        font-family: "Ubuntu Light Italic";
+      }
+    }
+    &.swiper-slide-active,
+    &.swiper-slide-duplicate-active {
+      opacity: 1;
+      filter: blur(0px);
     }
   }
 }
