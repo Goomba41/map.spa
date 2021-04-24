@@ -382,21 +382,6 @@ export default {
   }
 }
 
-h1 {
-  color: map-get($theme-colors, primary);
-  font-size: 3.5em;
-  line-height: 1.5em;
-  font-family: "Ubuntu Bold";
-  margin: 0 0 0.5625em 0;
-}
-h2 {
-  color: map-get($other-colors, text-default);
-  font-size: 1.75em;
-  font-family: "Ubuntu Medium";
-  line-height: 1.5em;
-  position: relative;
-  margin: 0 0 0.5625em 0;
-}
 header {
   h2 {
     margin: 0 0 1.6875em 0;

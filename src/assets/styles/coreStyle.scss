@@ -230,3 +230,20 @@ textarea {
     background-color: map-get($theme-colors, primary);
   }
 }
+
+h1 {
+  color: map-get($theme-colors, primary);
+  font-family: 'Ubuntu Bold';
+  font-size: 3.5em;
+  line-height: 1.5em;
+  margin: 0 0 .5625em;
+}
+
+h2 {
+  color: map-get($other-colors, text-default);
+  font-family: 'Ubuntu Medium';
+  font-size: 1.75em;
+  line-height: 1.5em;
+  margin: 0 0 .5625em;
+  position: relative;
+}
