@@ -34,17 +34,8 @@ export default {
 
 #sidebar {
   // No media query necessary for xl breakpoint as it has no upper bound on its width
-  display: -moz-flex;
-  display: -webkit-flex;
-  display: -ms-flex;
   display: flex;
-  -moz-flex-direction: column;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -moz-justify-content: space-between;
-  -webkit-justify-content: space-between;
-  -ms-justify-content: space-between;
   justify-content: space-between;
   background: map-get($theme-colors, primary);
   color: map-get($other-colors, text-alt);
@@ -55,6 +46,7 @@ export default {
   top: 0;
   width: 23em;
   right: 0;
+  z-index: 10002;
 
   // Large devices (desktops, less than 1200px)
   @include media-breakpoint-down(lg) {
