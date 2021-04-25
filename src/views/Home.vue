@@ -93,118 +93,11 @@
           <router-link :to="{ name: 'Places', params: {} }">here</router-link>
         </p>
         <div class="last-list">
-          <article>
-            <a href="#" class="image">
-              <img
-                src="../assets/images/pic01.webp"
-                alt=""
-                class="shadow-author"
-              />
-            </a>
-            <div class="description">
-              <h4 class="line-clamp">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                ut dignissim odio, nec molestie mauris.
-              </h4>
-              <p class="line-clamp">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                erat magna, lacinia non leo congue, suscipit facilisis ex.
-                Praesent varius ipsum finibus faucibus tempor. Nullam dapibus
-                nibh ut ante venenatis, in congue erat varius. Nulla ac
-                tincidunt lorem, in cursus est. In risus metus, accumsan sit
-                amet vehicula sit amet, tincidunt id ligula. Vivamus tincidunt
-                at neque ac varius. Morbi eros nisl, accumsan vel malesuada
-                iaculis, sodales eu lorem. Maecenas in sem non ipsum lobortis
-                rhoncus. Nullam id vulputate massa. Pellentesque congue libero
-                vel elementum convallis.
-              </p>
-              <div class="signature">
-                <span
-                  >Елена Чудиновских<br /><font-awesome-icon
-                    :icon="['fas', 'calendar-alt']"
-                    class="icon"
-                  />
-                  2021-04-01</span
-                >
-                <img
-                  src="../assets/images/author01.webp"
-                  class="author shadow"
-                  alt=""
-                />
-              </div>
-              <b-button
-                class="fit small"
-                variant="secondary-alt"
-                :to="{ path: '/page-example' }"
-                >Read full article</b-button
-              >
-            </div>
-          </article>
-          <article>
-            <a href="#" class="image">
-              <img src="../assets/images/pic02.webp" alt="" class="shadow" />
-            </a>
-            <div class="description">
-              <h4 class="line-clamp">
-                Lorem ipsum dolor sit amet, consectetur.
-              </h4>
-              <p class="line-clamp">
-                Integer eu ante ornare amet commetus vestibulum blandit integer
-                in curae ac faucibus integer adipiscing ornare amet.
-              </p>
-              <div class="signature">
-                <span
-                  >Владимир Жаравин<br /><font-awesome-icon
-                    :icon="['fas', 'calendar-alt']"
-                    class="icon"
-                  />
-                  2021-04-01</span
-                >
-                <img
-                  src="../assets/images/author02.webp"
-                  class="author shadow"
-                  alt=""
-                />
-              </div>
-              <b-button class="fit small" variant="secondary-alt">
-                Read full article
-              </b-button>
-            </div>
-          </article>
-          <article>
-            <a href="#" class="image">
-              <img src="../assets/images/pic03.webp" alt="" class="shadow" />
-            </a>
-            <div class="description">
-              <h4 class="line-clamp">
-                Lorem ipsum dolor sit amet, consectetur.
-              </h4>
-              <p class="line-clamp">
-                Integer eu ante ornare amet commetus vestibulum blandit integer
-                in curae ac faucibus integer adipiscing ornare amet.
-              </p>
-              <div class="signature">
-                <span
-                  >Антон Бородавкин<br /><font-awesome-icon
-                    :icon="['fas', 'calendar-alt']"
-                    class="icon"
-                  />
-                  2021-04-01</span
-                >
-                <img
-                  src="../assets/images/author03.webp"
-                  class="author shadow"
-                  alt=""
-                />
-              </div>
-              <b-button
-                :to="{ name: 'Object', params: {} }"
-                class="fit small"
-                variant="secondary-alt"
-                >Read full article</b-button
-              >
-            </div>
-          </article>
+          <last-item
+            :key="item.id"
+            v-for="item in lastItems"
+            :item="item"
+          ></last-item>
         </div>
       </b-container>
     </section>
@@ -316,12 +209,49 @@
 
 <script>
 import Map from "@/components/LeafletMap.vue";
+import LastItem from "@/components/LastItem.vue";
 export default {
   name: "Home",
-  components: { Map },
+  components: { Map, "last-item": LastItem },
   mounted() {},
   data() {
     return {
+      lastItems: [
+        {
+          id: 1,
+          p: "author01.webp",
+          f: "Чудиновских",
+          i: "Елена",
+          image: "pic01.webp",
+          header:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut dignissim odio, nec molestie mauris.",
+          fp:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam erat magna, lacinia non leo congue, suscipit facilisis ex. Praesent varius ipsum finibus faucibus tempor. Nullam dapibus nibh ut ante venenatis, in congue erat varius. Nulla ac tincidunt lorem, in cursus est. In risus metus, accumsan sit amet vehicula sit amet, tincidunt id ligula. Vivamus tincidunt at neque ac varius. Morbi eros nisl, accumsan vel malesuada iaculis, sodales eu lorem. Maecenas in sem non ipsum lobortis rhoncus. Nullam id vulputate massa. Pellentesque congue libero vel elementum convallis.",
+          cdate: "2021-04-01",
+        },
+        {
+          id: 2,
+          p: "author02.webp",
+          f: "Жаравин",
+          i: "Владимир",
+          image: "pic02.webp",
+          header: "Lorem ipsum dolor sit amet, consectetur.",
+          fp:
+            "Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.",
+          cdate: "2021-04-01",
+        },
+        {
+          id: 3,
+          p: "author03.webp",
+          f: "Бородавкин",
+          i: "Антон",
+          image: "pic03.webp",
+          header: "Lorem ipsum dolor sit amet, consectetur.",
+          fp:
+            "Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.",
+          cdate: "2021-04-01",
+        },
+      ],
       banners: ["banner01.webp", "banner02.webp", "banner03.webp"],
       authors: [
         {
@@ -536,100 +466,6 @@ img {
   }
 }
 
-.last-list {
-  article {
-    &:first-child {
-      border-top: 0;
-      padding-top: 0;
-    }
-    border-top: solid 3px map-get($other-colors, border-default);
-    margin-bottom: 2.25em;
-    padding-top: 2.25em;
-    // display: flex;
-
-    .image {
-      // Large devices (desktops, less than 1200px)
-      @include media-breakpoint-down(lg) {
-      }
-      // Medium devices (tablets, less than 992px)
-      @include media-breakpoint-down(md) {
-      }
-      // Small devices (landscape phones, less than 768px)
-      @include media-breakpoint-down(sm) {
-      }
-      // Extra small devices (portrait phones, less than 576px)
-      @include media-breakpoint-down(xs) {
-        display: block;
-        margin: 0 0 2.25em 0;
-        padding-right: 0;
-        width: 100%;
-      }
-
-      // No media query necessary for xl breakpoint as it has no upper bound on its width
-      display: inline-block;
-      padding-right: 2.5em;
-      vertical-align: middle;
-      width: 60%;
-
-      > img {
-        display: block;
-        width: 100%;
-        -moz-transition: filter 0.2s ease-in-out;
-        -webkit-transition: filter 0.2s ease-in-out;
-        -ms-transition: filter 0.2s ease-in-out;
-        transition: filter 0.2s ease-in-out;
-        &:hover {
-          filter: saturate(200%);
-        }
-      }
-    }
-    .description {
-      // Large devices (desktops, less than 1200px)
-      @include media-breakpoint-down(lg) {
-      }
-      // Medium devices (tablets, less than 992px)
-      @include media-breakpoint-down(md) {
-      }
-      // Small devices (landscape phones, less than 768px)
-      @include media-breakpoint-down(sm) {
-      }
-      // Extra small devices (portrait phones, less than 576px)
-      @include media-breakpoint-down(xs) {
-        display: block;
-        margin: 0 0 2.25em 0;
-        padding-right: 0;
-        width: 100%;
-      }
-
-      // No media query necessary for xl breakpoint as it has no upper bound on its width
-      display: inline-flex;
-      vertical-align: middle;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 13.9em;
-      width: 40%;
-
-      p {
-        margin: 0;
-        font-size: 0.85em;
-        &.line-clamp {
-          @include shorten-text(3, 1.75em);
-        }
-      }
-      h4 {
-        font-family: "Ubuntu Medium";
-        font-size: 1.25em;
-        &.line-clamp {
-          @include shorten-text(2, 1.5em);
-        }
-      }
-      &:last-child {
-        margin: 0;
-      }
-    }
-  }
-}
-
 @keyframes zoomIn {
   from {
     transform: scale(1);
@@ -763,42 +599,6 @@ textarea {
     }
 
     // No media query necessary for xl breakpoint as it has no upper bound on its width
-  }
-}
-
-.signature {
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
-  }
-  // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
-  }
-  // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(sm) {
-  }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
-    margin: 2em 0;
-  }
-
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
-  margin: 1em 0;
-  display: flex;
-  font-size: 0.7em;
-  align-items: center;
-  text-align: right;
-  justify-content: flex-end;
-
-  span {
-    font-family: "Ubuntu Light Italic";
-    line-height: 1.5em;
-    font-size: 0.85em;
-  }
-
-  .author {
-    width: 10%;
-    border-radius: 50%;
-    margin-left: 1em;
   }
 }
 
