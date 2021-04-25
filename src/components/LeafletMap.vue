@@ -14,7 +14,7 @@
       id="search-results"
       :class="[searchResult.active ? 'active' : '', 'search-results shadow']"
     >
-      <div
+      <template
         v-if="
           typeof searchResult.results !== 'undefined' &&
           searchResult.results.length > 0
@@ -27,8 +27,10 @@
         >
           {{ result }}
         </div>
-      </div>
-      <div v-else><div class="result">Ничего не найдено ಠ╭╮ಠ</div></div>
+      </template>
+      <template v-else
+        ><div class="result">Ничего не найдено ಠ╭╮ಠ</div></template
+      >
     </div>
     <l-map
       class="map shadow"
@@ -118,7 +120,28 @@ export default {
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
+#map-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .map {
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(lg) {
+  }
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(md) {
+  }
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(sm) {
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(xs) {
+    height: 60vh;
+    margin-bottom: 4em;
+  }
+
+  // No media query necessary for xl breakpoint as it has no upper bound on its width
   width: 100%;
   height: 80vh;
 }
@@ -128,6 +151,20 @@ export default {
 }
 
 .search-results {
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(lg) {
+  }
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(md) {
+  }
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(sm) {
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(xs) {
+  }
+
+  // No media query necessary for xl breakpoint as it has no upper bound on its width
   visibility: hidden;
   opacity: 0;
   display: flex;
@@ -141,34 +178,19 @@ export default {
   max-height: 3.25 * 3em;
   overflow: auto;
   width: 100%;
+  // max-width: calc(100% - 4.5em);
+  // width: calc(100% - 4.5em);
   &.active {
     visibility: visible;
     opacity: 1;
-  }
-
-  @include media-breakpoint-up(sm) {
-    max-width: 540px;
-  }
-  @include media-breakpoint-up(md) {
-    max-width: 720px;
-  }
-  @include media-breakpoint-up(lg) {
-    max-width: 960px;
-  }
-  @include media-breakpoint-up(xl) {
-    max-width: 1140px;
   }
 }
 
 .result {
   width: 100%;
   height: 3.25em;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
+  line-height: 1.25em;
   padding: 1rem;
   transition: background-color 0.2s linear;
   &:not(:last-child) {

@@ -2,7 +2,11 @@
   <div class="main">
     <!-- Section 1. Image gallery, header with headings 1 and 2 level, description. -->
     <section id="top">
-      <div v-swiper="swiperOptionMain" instance-name="firstSwiper">
+      <div
+        v-swiper="swiperOptionMain"
+        instance-name="firstSwiper"
+        class="main-slider"
+      >
         <div class="swiper-wrapper">
           <div
             class="swiper-slide image main"
@@ -18,8 +22,8 @@
         <header class="major">
           <h1>Walk around Kirov city</h1>
           <h2>
-            Interactive map of Kirov with interesting places,<br />
-            historical sites and
+            Interactive map of Kirov with interesting places, historical sites
+            and
             <a href="https://opendata.mkrf.ru/opendata/7705851331-egrkn/"
               >cultural heritage sites</a
             >.
@@ -81,7 +85,7 @@
     <!-- Section 3. Lates places and objects pages-->
     <section id="last-list">
       <b-container>
-        <h2>Last things we added on site</h2>
+        <h2>Last things we added</h2>
         <p>
           Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
@@ -115,7 +119,13 @@
                 vel elementum convallis.
               </p>
               <div class="signature">
-                <span>Елена Чудиновских<br />(2021-04-01)</span>
+                <span
+                  >Елена Чудиновских<br /><font-awesome-icon
+                    :icon="['fas', 'calendar-alt']"
+                    class="icon"
+                  />
+                  2021-04-01</span
+                >
                 <img
                   src="../assets/images/author01.webp"
                   class="author shadow"
@@ -143,7 +153,13 @@
                 in curae ac faucibus integer adipiscing ornare amet.
               </p>
               <div class="signature">
-                <span>Владимир Жаравин<br />(2021-04-01)</span>
+                <span
+                  >Владимир Жаравин<br /><font-awesome-icon
+                    :icon="['fas', 'calendar-alt']"
+                    class="icon"
+                  />
+                  2021-04-01</span
+                >
                 <img
                   src="../assets/images/author02.webp"
                   class="author shadow"
@@ -168,7 +184,13 @@
                 in curae ac faucibus integer adipiscing ornare amet.
               </p>
               <div class="signature">
-                <span>Антон Бородавкин<br />(2021-04-01)</span>
+                <span
+                  >Антон Бородавкин<br /><font-awesome-icon
+                    :icon="['fas', 'calendar-alt']"
+                    class="icon"
+                  />
+                  2021-04-01</span
+                >
                 <img
                   src="../assets/images/author03.webp"
                   class="author shadow"
@@ -377,9 +399,6 @@ export default {
       border-top: solid 6px map-get($other-colors, border-default);
     }
   }
-  .container {
-    padding: 6em 0 4em 0;
-  }
 }
 
 header {
@@ -390,6 +409,21 @@ header {
 
 .image {
   &.main {
+    // Large devices (desktops, less than 1200px)
+    @include media-breakpoint-down(lg) {
+    }
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(md) {
+    }
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(sm) {
+    }
+    // Extra small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(xs) {
+      height: 12em;
+    }
+
+    // No media query necessary for xl breakpoint as it has no upper bound on its width
     display: block;
     height: 20em;
     border-radius: 0;
@@ -450,6 +484,22 @@ img {
   padding-left: 0;
   margin: 0 0 2.25em 0;
   .feature {
+    // Large devices (desktops, less than 1200px)
+    // @include media-breakpoint-down(lg) {
+    // }
+    // Medium devices (tablets, less than 992px)
+    // @include media-breakpoint-down(md) {
+    // }
+    // Small devices (landscape phones, less than 768px)
+    // @include media-breakpoint-down(sm) {
+    // }
+    // Extra small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+    }
+
+    // No media query necessary for xl breakpoint as it has no upper bound on its width
+
     display: inline-flex;
     display: -webkit-inline-flex;
     margin: 0 0 1.6875em 0;
@@ -477,11 +527,11 @@ img {
       height: 1.25em;
       background-color: map-get($theme-colors, primary);
       color: white;
-      font-size: 3rem;
-      padding: 0.8rem;
+      font-size: 2em;
+      padding: 0.2em;
       border: solid 0.08em transparent;
       border-radius: 100%;
-      margin-right: 1rem;
+      margin-right: 1em;
     }
   }
 }
@@ -495,12 +545,32 @@ img {
     border-top: solid 3px map-get($other-colors, border-default);
     margin-bottom: 2.25em;
     padding-top: 2.25em;
-    display: flex;
+    // display: flex;
+
     .image {
+      // Large devices (desktops, less than 1200px)
+      @include media-breakpoint-down(lg) {
+      }
+      // Medium devices (tablets, less than 992px)
+      @include media-breakpoint-down(md) {
+      }
+      // Small devices (landscape phones, less than 768px)
+      @include media-breakpoint-down(sm) {
+      }
+      // Extra small devices (portrait phones, less than 576px)
+      @include media-breakpoint-down(xs) {
+        display: block;
+        margin: 0 0 2.25em 0;
+        padding-right: 0;
+        width: 100%;
+      }
+
+      // No media query necessary for xl breakpoint as it has no upper bound on its width
       display: inline-block;
       padding-right: 2.5em;
       vertical-align: middle;
       width: 60%;
+
       > img {
         display: block;
         width: 100%;
@@ -514,14 +584,34 @@ img {
       }
     }
     .description {
+      // Large devices (desktops, less than 1200px)
+      @include media-breakpoint-down(lg) {
+      }
+      // Medium devices (tablets, less than 992px)
+      @include media-breakpoint-down(md) {
+      }
+      // Small devices (landscape phones, less than 768px)
+      @include media-breakpoint-down(sm) {
+      }
+      // Extra small devices (portrait phones, less than 576px)
+      @include media-breakpoint-down(xs) {
+        display: block;
+        margin: 0 0 2.25em 0;
+        padding-right: 0;
+        width: 100%;
+      }
+
+      // No media query necessary for xl breakpoint as it has no upper bound on its width
       display: inline-flex;
       vertical-align: middle;
       flex-direction: column;
       justify-content: space-between;
       min-height: 13.9em;
-      width: 50%;
+      width: 40%;
+
       p {
         margin: 0;
+        font-size: 0.85em;
         &.line-clamp {
           @include shorten-text(3, 1.75em);
         }
@@ -563,13 +653,62 @@ textarea {
 
   ul {
     &.actions {
+      // Large devices (desktops, less than 1200px)
+      @include media-breakpoint-down(lg) {
+      }
+      // Medium devices (tablets, less than 992px)
+      @include media-breakpoint-down(md) {
+      }
+      // Small devices (landscape phones, less than 768px)
+      @include media-breakpoint-down(sm) {
+      }
+      // Extra small devices (portrait phones, less than 576px)
+      @include media-breakpoint-down(xs) {
+        flex-flow: column;
+      }
+
+      // No media query necessary for xl breakpoint as it has no upper bound on its width
       display: flex;
       cursor: default;
       list-style: none;
       padding: 0;
       margin: 0;
       li {
+        // Large devices (desktops, less than 1200px)
+        @include media-breakpoint-down(lg) {
+        }
+        // Medium devices (tablets, less than 992px)
+        @include media-breakpoint-down(md) {
+        }
+        // Small devices (landscape phones, less than 768px)
+        @include media-breakpoint-down(sm) {
+        }
+        // Extra small devices (portrait phones, less than 576px)
+        @include media-breakpoint-down(xs) {
+          padding: 0;
+          padding-bottom: 1.125em;
+        }
+
+        // No media query necessary for xl breakpoint as it has no upper bound on its width
         padding-right: 2em;
+
+        button {
+          // Large devices (desktops, less than 1200px)
+          @include media-breakpoint-down(lg) {
+          }
+          // Medium devices (tablets, less than 992px)
+          @include media-breakpoint-down(md) {
+          }
+          // Small devices (landscape phones, less than 768px)
+          @include media-breakpoint-down(sm) {
+          }
+          // Extra small devices (portrait phones, less than 576px)
+          @include media-breakpoint-down(xs) {
+            width: 100%;
+          }
+
+          // No media query necessary for xl breakpoint as it has no upper bound on its width
+        }
       }
     }
   }
@@ -608,29 +747,54 @@ textarea {
   }
 
   .col-12-xsmall {
-    @include media-breakpoint-down(sm) {
-      width: 100%;
-    }
-    @include media-breakpoint-down(md) {
-    }
+    // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(lg) {
     }
-    @include media-breakpoint-down(xl) {
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(md) {
     }
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(sm) {
+    }
+    // Extra small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(xs) {
+      width: 100%;
+      padding: 0 0 2em;
+    }
+
+    // No media query necessary for xl breakpoint as it has no upper bound on its width
   }
 }
 
 .signature {
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(lg) {
+  }
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(md) {
+  }
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(sm) {
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(xs) {
+    margin: 2em 0;
+  }
+
+  // No media query necessary for xl breakpoint as it has no upper bound on its width
   margin: 1em 0;
   display: flex;
   font-size: 0.7em;
   align-items: center;
   text-align: right;
   justify-content: flex-end;
+
   span {
     font-family: "Ubuntu Light Italic";
     line-height: 1.5em;
+    font-size: 0.85em;
   }
+
   .author {
     width: 10%;
     border-radius: 50%;
@@ -639,7 +803,39 @@ textarea {
 }
 
 .swiper-container {
+  &.main-slider {
+    // Large devices (desktops, less than 1200px)
+    @include media-breakpoint-down(lg) {
+    }
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(md) {
+    }
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(sm) {
+    }
+    // Extra small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(xs) {
+      height: 12em;
+    }
+
+    // No media query necessary for xl breakpoint as it has no upper bound on its width
+  }
   &.authors {
+    // Large devices (desktops, less than 1200px)
+    @include media-breakpoint-down(lg) {
+    }
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(md) {
+    }
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(sm) {
+    }
+    // Extra small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(xs) {
+      height: 25em;
+    }
+
+    // No media query necessary for xl breakpoint as it has no upper bound on its width
     width: 100%;
     height: 20em;
   }
@@ -654,6 +850,21 @@ textarea {
     user-select: none;
     transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
     img {
+      // Large devices (desktops, less than 1200px)
+      @include media-breakpoint-down(lg) {
+      }
+      // Medium devices (tablets, less than 992px)
+      @include media-breakpoint-down(md) {
+      }
+      // Small devices (landscape phones, less than 768px)
+      @include media-breakpoint-down(sm) {
+      }
+      // Extra small devices (portrait phones, less than 576px)
+      @include media-breakpoint-down(xs) {
+        width: 80%;
+      }
+
+      // No media query necessary for xl breakpoint as it has no upper bound on its width
       width: 35%;
       border-radius: 100%;
       margin-bottom: 1.25em;

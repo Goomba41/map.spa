@@ -33,6 +33,7 @@ export default {
 @import "@/assets/styles/variables.scss";
 
 #sidebar {
+  // No media query necessary for xl breakpoint as it has no upper bound on its width
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -52,20 +53,32 @@ export default {
   position: fixed;
   text-align: center;
   top: 0;
-  // width: 15rem;
   width: 23em;
   right: 0;
 
-  @include media-breakpoint-down(xs) {
-  }
-  @include media-breakpoint-down(sm) {
-    width: 15em;
-  }
-  @include media-breakpoint-down(md) {
-  }
+  // Large devices (desktops, less than 1200px)
   @include media-breakpoint-down(lg) {
   }
-  @include media-breakpoint-down(xl) {
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(md) {
+  }
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(sm) {
+    // width: 17em;
+    // -moz-transform: translateX(17em);
+    // -webkit-transform: translateX(17em);
+    // -ms-transform: translateX(17em);
+    // transform: translateX(17em);
+    // right: 0;
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(xs) {
+    width: 17em;
+    -moz-transform: translateX(17em);
+    -webkit-transform: translateX(17em);
+    -ms-transform: translateX(17em);
+    transform: translateX(17em);
+    right: 0;
   }
 }
 </style>

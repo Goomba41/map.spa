@@ -14,6 +14,8 @@ import {
   faSearch,
   faEnvelopeOpenText,
   faUserCircle,
+  faCalendarAlt,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faVk,
@@ -39,7 +41,9 @@ library.add(
   faInstagram,
   faEnvelopeOpenText,
   faUserCircle,
-  faTelegram
+  faTelegram,
+  faBars,
+  faCalendarAlt
 );
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);

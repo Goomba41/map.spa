@@ -64,6 +64,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
 footer {
   flex-shrink: 0;
   bottom: 0;
@@ -74,6 +78,7 @@ footer {
     border: none;
   }
   ul {
+    // No media query necessary for xl breakpoint as it has no upper bound on its width
     margin: 0;
     cursor: default;
     list-style: none;
@@ -81,6 +86,34 @@ footer {
     display: flex;
     justify-content: space-between;
     font-size: 1.5em;
+
+    // Large devices (desktops, less than 1200px)
+    @include media-breakpoint-down(lg) {
+    }
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(md) {
+    }
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(sm) {
+    }
+    // Extra small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(xs) {
+      font-size: 1em;
+    }
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(lg) {
+  }
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(md) {
+  }
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(sm) {
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(xs) {
+    padding: 1.5em;
   }
 }
 </style>
