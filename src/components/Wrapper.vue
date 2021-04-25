@@ -37,6 +37,11 @@ export default {
   @include media-breakpoint-down(xs) {
     // transform: translateX(-17em);
     padding: 44px 0 1px 0;
+    transform: translateX(0em);
+    right: 0;
+    .sidebar-show & {
+      transform: translateX(-17em);
+    }
   }
 
   // No media query necessary for xl breakpoint as it has no upper bound on its width

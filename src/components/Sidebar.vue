@@ -47,6 +47,7 @@ export default {
   width: 23em;
   right: 0;
   z-index: 10002;
+  transition: transform 0.5s ease;
 
   // Large devices (desktops, less than 1200px)
   @include media-breakpoint-down(lg) {
@@ -66,11 +67,11 @@ export default {
   // Extra small devices (portrait phones, less than 576px)
   @include media-breakpoint-down(xs) {
     width: 17em;
-    -moz-transform: translateX(17em);
-    -webkit-transform: translateX(17em);
-    -ms-transform: translateX(17em);
     transform: translateX(17em);
     right: 0;
+    .sidebar-show & {
+      transform: translateX(0em);
+    }
   }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
-  <div id="app" class="app">
-    <sidebar-toggle></sidebar-toggle>
+  <div id="app" :class="[sidebarShow ? 'sidebar-show' : '', 'app']">
+    <sidebar-toggle @sidebar-toggle="sidebarShow = !sidebarShow">
+    </sidebar-toggle>
     <Wrapper></Wrapper>
     <Sidebar></Sidebar>
     <a href="#" title="System sign in" class="sign-in-link">
@@ -15,7 +16,15 @@ import Wrapper from "@/components/Wrapper.vue";
 import SidebarToggleMobile from "@/components/SidebarToggleMobile.vue";
 
 export default {
+  data() {
+    return {
+      sidebarShow: false,
+    };
+  },
   components: { Sidebar, Wrapper, "sidebar-toggle": SidebarToggleMobile },
+  methods: {
+    sidebarToggle() {},
+  },
 };
 </script>
 

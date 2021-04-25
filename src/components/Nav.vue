@@ -4,6 +4,7 @@
     class=""
     active-class="router-link-exact-active"
     :offset="0"
+    :highlightFirstItem="true"
   >
     <router-link to="/#top" class="scrollactive-item">Home</router-link>
     <router-link to="/#about" class="scrollactive-item">About</router-link>

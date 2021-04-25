@@ -1,6 +1,6 @@
 <template>
   <div id="sidebarToggle">
-    <a href="#header" class="toggle"
+    <a href="#header" class="toggle" @click="$emit('sidebar-toggle')"
       ><font-awesome-icon :icon="['fas', 'bars']" class="icon"
     /></a>
     <span class="title"><a href="#">Willis Corto</a></span>
@@ -47,6 +47,13 @@ export default {
     background: map-get($other-colors, "text-default");
     color: map-get($other-colors, "white");
     min-width: 320px;
+
+    transform: translateX(0em);
+    right: 0;
+    .sidebar-show & {
+      transform: translateX(-17em);
+    }
+
     .title {
       color: map-get($other-colors, "white");
       display: block;
