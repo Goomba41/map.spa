@@ -3,10 +3,10 @@
     <span class="image logo">
       <img src="../assets/images/logo.webp" alt="logo" />
     </span>
-    <h1 id="logo">Willis Corto</h1>
+    <h1>Lorem ipsum</h1>
     <p>
-      I got reprogrammed by a rogue AI<br />
-      and now I'm totally cray
+      Lorem ipsum dolor sit amet,<br />
+      adipiscing elit. Proin justo non.
     </p>
   </header>
 </template>

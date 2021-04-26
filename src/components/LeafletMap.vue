@@ -5,7 +5,7 @@
       name="map-search"
       value=""
       class="map-search"
-      placeholder="Search"
+      placeholder="Поиск"
       @input="searchRequest"
       @focus="searchResultToggle"
       @blur="searchResultToggle"

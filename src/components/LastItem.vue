@@ -32,7 +32,7 @@
         class="fit small"
         variant="secondary-alt"
         :to="{ path: '/page-example' }"
-        >Read full article</b-button
+        >Читать полностью</b-button
       >
     </div>
   </article>

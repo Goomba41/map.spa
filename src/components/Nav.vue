@@ -6,18 +6,18 @@
     :offset="0"
     :highlightFirstItem="true"
   >
-    <router-link to="/#top" class="scrollactive-item">Home</router-link>
-    <router-link to="/#about" class="scrollactive-item">About</router-link>
+    <router-link to="/#top" class="scrollactive-item">Главная</router-link>
+    <router-link to="/#about" class="scrollactive-item">О проекте</router-link>
     <router-link to="/#marked" class="scrollactive-item"
-      >What we marked?</router-link
+      >Что у нас есть?</router-link
     >
     <router-link to="/#last-list" class="scrollactive-item"
-      >Places list</router-link
+      >Что нового?</router-link
     >
-    <router-link to="/#map" class="scrollactive-item">Map</router-link>
-    <router-link to="/#authors" class="scrollactive-item">Authors</router-link>
+    <router-link to="/#map" class="scrollactive-item">Карта</router-link>
+    <router-link to="/#authors" class="scrollactive-item">Авторы</router-link>
     <router-link to="/#feedback" class="scrollactive-item"
-      >Feedback</router-link
+      >Связаться</router-link
     >
   </scrollactive>
 </template>

@@ -20,12 +20,12 @@
       </div>
       <b-container id="about">
         <header class="major">
-          <h1>Walk around Kirov city</h1>
+          <h1>Прогулка по Кирову</h1>
           <h2>
-            Interactive map of Kirov with interesting places, historical sites
-            and
+            Интерактивная карта Кирова с интересными местами, историческими
+            постройками и
             <a href="https://opendata.mkrf.ru/opendata/7705851331-egrkn/"
-              >cultural heritage sites</a
+              >объектами культурного наследия</a
             >.
           </h2>
         </header>
@@ -43,7 +43,7 @@
     <!-- Section 2. Map possibilities or things marked on $map. -->
     <section id="marked">
       <b-container>
-        <h2>We marked some things on map for you</h2>
+        <h2>Мы отметили несколько мест для Вас</h2>
         <p>
           Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
@@ -51,32 +51,32 @@
         </p>
         <ul class="features">
           <li class="feature">
-            <font-awesome-icon :icon="['fas', 'industry']" class="icon" /> Old
-            and new industrial buildings
+            <font-awesome-icon :icon="['fas', 'industry']" class="icon" />
+            Старые и новые производственные здания
           </li>
           <li class="feature">
-            <font-awesome-icon :icon="['fas', 'home']" class="icon" />Small
-            villages around region
+            <font-awesome-icon :icon="['fas', 'home']" class="icon" />Небольшие
+            селения региона
           </li>
           <li class="feature">
-            <font-awesome-icon :icon="['fas', 'tree']" class="icon" />Parks and
-            Recreation Areas
+            <font-awesome-icon :icon="['fas', 'tree']" class="icon" />Парки и
+            зоны отдыха
           </li>
           <li class="feature">
-            <font-awesome-icon :icon="['fas', 'church']" class="icon" />Churches
-            and other religious sites
+            <font-awesome-icon :icon="['fas', 'church']" class="icon" />Церкви и
+            прочие религиозные места
           </li>
           <li class="feature">
             <font-awesome-icon
               :icon="['fas', 'basketball-ball']"
               class="icon"
-            />Sports and activity venues
+            />Спортивные и развлекательные объекты
           </li>
           <li class="feature">
             <font-awesome-icon
               :icon="['fas', 'map-marked-alt']"
               class="icon"
-            />The city's attractions
+            />Достопримечательности города
           </li>
         </ul>
       </b-container>
@@ -85,12 +85,13 @@
     <!-- Section 3. Lates places and objects pages-->
     <section id="last-list">
       <b-container>
-        <h2>Last things we added</h2>
+        <h2>Что нового?</h2>
         <p>
           Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
-          faucibus commodo ac mi lacus. Full list of added places you can view
-          <router-link :to="{ name: 'Places', params: {} }">here</router-link>
+          faucibus commodo ac mi lacus. Полный список добавленных объектов и
+          мест можно посмотреть
+          <router-link :to="{ name: 'Places', params: {} }">здесь</router-link>
         </p>
         <div class="last-list">
           <last-item
@@ -105,7 +106,7 @@
     <!-- Section 4. Leaflet map-->
     <section id="map">
       <b-container>
-        <h2>We present you... our map!</h2>
+        <h2>Представляем Вам... нашу карту!</h2>
         <p>
           Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
@@ -118,7 +119,7 @@
     <!-- Section 5. Authors-->
     <section id="authors">
       <b-container>
-        <h2>Project authors</h2>
+        <h2>Авторы и создатели проекта</h2>
         <p>
           Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
@@ -156,7 +157,7 @@
     <!-- Section 6. Feedback form-->
     <section id="feedback">
       <b-container>
-        <h2>Contact us</h2>
+        <h2>Вопросы? Предложения? Напишите нам!</h2>
         <p>
           Faucibus sed lobortis aliquam lorem blandit. Lorem eu nunc metus col.
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
@@ -166,36 +167,39 @@
         <form method="post" class="feedback row" action="#">
           <!-- <div class=""> -->
           <div class="col-6 col-12-xsmall">
-            <input type="text" name="name" id="name" placeholder="Name" />
-          </div>
-          <div class="col-6 col-12-xsmall">
-            <input type="email" name="email" id="email" placeholder="Email" />
-          </div>
-          <div class="col-12">
             <input
               type="text"
-              name="subject"
-              id="subject"
-              placeholder="Subject"
+              name="name"
+              id="name"
+              placeholder="Имя и отчество"
             />
+          </div>
+          <div class="col-6 col-12-xsmall">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Адрес электронной почты"
+            />
+          </div>
+          <div class="col-12">
+            <input type="text" name="subject" id="subject" placeholder="Тема" />
           </div>
           <div class="col-12">
             <textarea
               name="message"
               id="message"
-              placeholder="Message"
+              placeholder="Сообщение"
               rows="6"
             ></textarea>
           </div>
           <div class="col-12">
             <ul class="actions">
               <li>
-                <b-button type="submit" variant="primary"
-                  >Send Message</b-button
-                >
+                <b-button type="submit" variant="primary">Отправить</b-button>
               </li>
               <li>
-                <b-button type="reset" variant="secondary">Reset Form</b-button>
+                <b-button type="reset" variant="secondary">Сброс</b-button>
               </li>
             </ul>
           </div>
