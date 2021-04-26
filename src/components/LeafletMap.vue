@@ -134,10 +134,10 @@ export default {
   }
   // Small devices (landscape phones, less than 768px)
   @include media-breakpoint-down(sm) {
+    height: 60vh;
   }
   // Extra small devices (portrait phones, less than 576px)
   @include media-breakpoint-down(xs) {
-    height: 60vh;
     margin-bottom: 4em;
   }
 

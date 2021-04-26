@@ -347,10 +347,11 @@ header {
     }
     // Small devices (landscape phones, less than 768px)
     @include media-breakpoint-down(sm) {
+      height: 12em;
     }
     // Extra small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(xs) {
-      height: 12em;
+      // height: 12em;
     }
 
     // No media query necessary for xl breakpoint as it has no upper bound on its width
@@ -550,33 +551,49 @@ textarea {
   }
 
   .col-6 {
-    width: 50%;
-    @include media-breakpoint-down(sm) {
-      padding: 0 1.25em;
-    }
-    @include media-breakpoint-down(md) {
-    }
+    // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(lg) {
     }
-    @include media-breakpoint-down(xl) {
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(md) {
     }
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(sm) {
+      padding: 0 1em 1em 0;
+    }
+    // Extra small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(xs) {
+    }
+
+    // No media query necessary for xl breakpoint as it has no upper bound on its width
+    width: 50%;
     padding: 0 2em 2em 0;
     &:nth-child(2n) {
+      // Small devices (landscape phones, less than 768px)
+      @include media-breakpoint-down(sm) {
+        padding: 0 0em 1em 0;
+      }
+      // No media query necessary for xl breakpoint as it has no upper bound on its width
       padding: 0 0 2em 0;
     }
   }
 
   .col-12 {
-    width: 100%;
-    @include media-breakpoint-down(sm) {
-      // padding: 0 1.25em;
-    }
-    @include media-breakpoint-down(md) {
-    }
+    // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(lg) {
     }
-    @include media-breakpoint-down(xl) {
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(md) {
     }
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(sm) {
+    }
+    // Extra small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(xs) {
+    }
+
+    // No media query necessary for xl breakpoint as it has no upper bound on its width
+    width: 100%;
     &:not(:last-child) {
       padding: 0 0 2em 0;
     }
@@ -629,6 +646,7 @@ textarea {
     }
     // Small devices (landscape phones, less than 768px)
     @include media-breakpoint-down(sm) {
+      height: 18.5em;
     }
     // Extra small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(xs) {
@@ -640,6 +658,22 @@ textarea {
     height: 20em;
   }
   .author {
+    // Large devices (desktops, less than 1200px)
+    @include media-breakpoint-down(lg) {
+    }
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(md) {
+    }
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(sm) {
+      height: 80%;
+      font-size: 0.8em;
+    }
+    // Extra small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(xs) {
+    }
+
+    // No media query necessary for xl breakpoint as it has no upper bound on its width
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -649,6 +683,7 @@ textarea {
     cursor: default;
     user-select: none;
     transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+
     img {
       // Large devices (desktops, less than 1200px)
       @include media-breakpoint-down(lg) {

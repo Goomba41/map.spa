@@ -32,9 +32,6 @@ export default {
   }
   // Small devices (landscape phones, less than 768px)
   @include media-breakpoint-down(sm) {
-  }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
     // transform: translateX(-17em);
     padding: 44px 0 1px 0;
     transform: translateX(0em);
@@ -42,6 +39,9 @@ export default {
     .sidebar-show & {
       transform: translateX(-17em);
     }
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(xs) {
   }
 
   // No media query necessary for xl breakpoint as it has no upper bound on its width

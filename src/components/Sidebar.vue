@@ -57,21 +57,15 @@ export default {
   }
   // Small devices (landscape phones, less than 768px)
   @include media-breakpoint-down(sm) {
-    // width: 17em;
-    // -moz-transform: translateX(17em);
-    // -webkit-transform: translateX(17em);
-    // -ms-transform: translateX(17em);
-    // transform: translateX(17em);
-    // right: 0;
-  }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
     width: 17em;
     transform: translateX(17em);
     right: 0;
     .sidebar-show & {
       transform: translateX(0em);
     }
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(xs) {
   }
 }
 </style>

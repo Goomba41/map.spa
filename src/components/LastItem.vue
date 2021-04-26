@@ -73,12 +73,15 @@ article {
     }
     // Small devices (landscape phones, less than 768px)
     @include media-breakpoint-down(sm) {
+      padding-bottom: 2.5em;
+      padding-right: 0;
+      width: 100%;
     }
     // Extra small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(xs) {
       display: block;
       margin: 0 0 2.25em 0;
-      padding-right: 0;
+      padding: 0;
       width: 100%;
     }
 
@@ -109,6 +112,7 @@ article {
     }
     // Small devices (landscape phones, less than 768px)
     @include media-breakpoint-down(sm) {
+      width: 100%;
     }
     // Extra small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(xs) {
@@ -176,6 +180,21 @@ article {
   }
 
   .author {
+    // Large devices (desktops, less than 1200px)
+    @include media-breakpoint-down(lg) {
+    }
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(md) {
+    }
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(sm) {
+      width: 7%;
+    }
+    // Extra small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(xs) {
+    }
+
+    // No media query necessary for xl breakpoint as it has no upper bound on its width
     width: 10%;
     border-radius: 50%;
     margin-left: 1em;

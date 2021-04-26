@@ -32,9 +32,6 @@ export default {
   }
   // Small devices (landscape phones, less than 768px)
   @include media-breakpoint-down(sm) {
-  }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
     backface-visibility: hidden;
     transition: transform 0.5s ease;
     display: block;
@@ -86,6 +83,9 @@ export default {
         color: map-get($other-colors, "white");
       }
     }
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(xs) {
   }
 
   // No media query necessary for xl breakpoint as it has no upper bound on its width
