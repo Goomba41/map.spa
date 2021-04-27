@@ -44,16 +44,23 @@ export default {
   position: fixed;
   text-align: center;
   top: 0;
-  width: 23em;
+  width: 20em;
   right: 0;
   z-index: 10002;
   transition: transform 0.5s ease;
 
   // Large devices (desktops, less than 1200px)
   @include media-breakpoint-down(lg) {
+    width: 20em;
   }
   // Medium devices (tablets, less than 992px)
   @include media-breakpoint-down(md) {
+    width: 23em;
+    transform: translateX(23em);
+    right: 0;
+    .sidebar-show & {
+      transform: translateX(0em);
+    }
   }
   // Small devices (landscape phones, less than 768px)
   @include media-breakpoint-down(sm) {

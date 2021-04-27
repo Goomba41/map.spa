@@ -6,7 +6,7 @@
     <h1>Lorem ipsum</h1>
     <p>
       Lorem ipsum dolor sit amet,<br />
-      adipiscing elit. Proin justo non.
+      adipiscing elit. Proin justo.
     </p>
   </header>
 </template>

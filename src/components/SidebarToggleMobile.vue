@@ -3,7 +3,7 @@
     <a href="#header" class="toggle" @click="$emit('sidebar-toggle')"
       ><font-awesome-icon :icon="['fas', 'bars']" class="icon"
     /></a>
-    <span class="title"><a href="#">Willis Corto</a></span>
+    <span class="title"><a href="#">Lorem ipsumei</a></span>
   </div>
 </template>
 
@@ -29,9 +29,6 @@ export default {
   }
   // Medium devices (tablets, less than 992px)
   @include media-breakpoint-down(md) {
-  }
-  // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(sm) {
     backface-visibility: hidden;
     transition: transform 0.5s ease;
     display: block;
@@ -48,7 +45,7 @@ export default {
     transform: translateX(0em);
     right: 0;
     .sidebar-show & {
-      transform: translateX(-17em);
+      transform: translateX(-23em);
     }
 
     .title {
@@ -68,7 +65,7 @@ export default {
 
     .toggle {
       height: 2.76em;
-      width: 2.75em;
+      width: 4.75em;
       text-decoration: none;
       position: absolute;
       top: 0;
@@ -82,6 +79,12 @@ export default {
       &:hover {
         color: map-get($other-colors, "white");
       }
+    }
+  }
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(sm) {
+    .sidebar-show & {
+      transform: translateX(-17em);
     }
   }
   // Extra small devices (portrait phones, less than 576px)

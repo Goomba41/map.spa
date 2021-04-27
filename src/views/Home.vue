@@ -226,11 +226,10 @@ export default {
           p: "author01.webp",
           f: "Чудиновских",
           i: "Елена",
-          image: "pic01.webp",
-          header:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ut dignissim odio, nec molestie mauris.",
+          image: "post01-1.webp",
+          header: "Зосимо-Савватиевская церковь.",
           fp:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam erat magna, lacinia non leo congue, suscipit facilisis ex. Praesent varius ipsum finibus faucibus tempor. Nullam dapibus nibh ut ante venenatis, in congue erat varius. Nulla ac tincidunt lorem, in cursus est. In risus metus, accumsan sit amet vehicula sit amet, tincidunt id ligula. Vivamus tincidunt at neque ac varius. Morbi eros nisl, accumsan vel malesuada iaculis, sodales eu lorem. Maecenas in sem non ipsum lobortis rhoncus. Nullam id vulputate massa. Pellentesque congue libero vel elementum convallis.",
+            "Зосимо-Савватиевская церковь каменная в с. Коршик построена в 1777 году. В результате великого разрушения 30-х годов от этого множества церквей полностью уцелело только семь церквей XVIII столетия. В числе полностью уцелевших была и Зосимо-Савватиевская церковь села Коршик. Она не была закрыта при И. Сталине. По красоте, величию, живописи, художественной отделке резных иконостасов эта церковь была самым лучшим (из оставшихся) памятником церковного зодчества XVIII ст. на территории Кировской области.",
           cdate: "2021-04-01",
         },
         {
@@ -238,10 +237,10 @@ export default {
           p: "author02.webp",
           f: "Жаравин",
           i: "Владимир",
-          image: "pic02.webp",
-          header: "Lorem ipsum dolor sit amet, consectetur.",
+          image: "post02-1.webp",
+          header: "Заречный парк.",
           fp:
-            "Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.",
+            "3 мая 1935 года Кировский горисполком представил в крайисполком, разработанный земельно-зеленным отделом эскизный план будущего парка. В приложении было записано: «Под парк отводится так называемая Заречная роща с прилегающими участками лугов на берегу реки, пляжем и лугами в сторону Дымковской слободы и деревни Субботиха. Парк должен в полной степени использовать красоты векового соснового леса с его многочисленными озёрами, полянами, лугами, рекой и т. д.»",
           cdate: "2021-04-01",
         },
         {
@@ -327,19 +326,6 @@ export default {
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 @import "@/assets/styles/variables.scss";
-.main {
-  section {
-    &:not(:first-child) {
-      border-top: solid 6px map-get($other-colors, border-default);
-    }
-  }
-}
-
-header {
-  h2 {
-    margin: 0 0 1.6875em 0;
-  }
-}
 
 .image {
   &.main {
@@ -444,6 +430,7 @@ img {
     align-items: center;
     width: 50%;
     cursor: default;
+    padding: 0 1em;
 
     &:hover {
       .icon {

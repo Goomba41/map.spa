@@ -72,7 +72,7 @@ footer {
   flex-shrink: 0;
   bottom: 0;
   left: 0;
-  padding: 2em 5em;
+  padding: 2em 3em;
   width: 100%;
   a {
     border: none;

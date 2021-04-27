@@ -134,7 +134,22 @@ article {
       margin: 0;
       font-size: 0.85em;
       &.line-clamp {
-        @include shorten-text(3, 1.75em);
+        // Large devices (desktops, less than 1200px)
+        @include media-breakpoint-down(lg) {
+          @include shorten-text(3, 1.75em);
+        }
+        // Medium devices (tablets, less than 992px)
+        @include media-breakpoint-down(md) {
+        }
+        // Small devices (landscape phones, less than 768px)
+        @include media-breakpoint-down(sm) {
+        }
+        // Extra small devices (portrait phones, less than 576px)
+        @include media-breakpoint-down(xs) {
+        }
+
+        // No media query necessary for xl breakpoint as it has no upper bound on its width
+        @include shorten-text(4, 1.75em);
       }
     }
     h4 {

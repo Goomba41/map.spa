@@ -108,7 +108,8 @@
   margin: 0 auto;
   max-width: calc(100% - 4.5em);
   padding: 6em 0 4em;
-  width: 45em;
+  width: 70%;
+  // width: 45em;
 }
 
 a {
@@ -269,6 +270,20 @@ textarea {
 .swiper-pagination {
   .swiper-pagination-bullet-active {
     background-color: map-get($theme-colors, primary);
+  }
+}
+
+.main {
+  section {
+    &:not(:first-child) {
+      border-top: solid 6px map-get($other-colors, border-default);
+    }
+  }
+}
+
+header {
+  h2 {
+    margin: 0 0 1.6875em;
   }
 }
 

@@ -26,15 +26,18 @@ export default {
 #wrapper {
   // Large devices (desktops, less than 1200px)
   @include media-breakpoint-down(lg) {
+    padding-right: 20em;
   }
   // Medium devices (tablets, less than 992px)
   @include media-breakpoint-down(md) {
+    padding: 44px 0 1px 0;
+    right: 0;
+    .sidebar-show & {
+      transform: translateX(-23em);
+    }
   }
   // Small devices (landscape phones, less than 768px)
   @include media-breakpoint-down(sm) {
-    // transform: translateX(-17em);
-    padding: 44px 0 1px 0;
-    transform: translateX(0em);
     right: 0;
     .sidebar-show & {
       transform: translateX(-17em);
@@ -47,6 +50,7 @@ export default {
   // No media query necessary for xl breakpoint as it has no upper bound on its width
   background: map-get($other-colors, "white");
   transition: transform 0.5s ease;
-  padding-right: 23em;
+  padding-right: 20em;
+  transform: translateX(0em);
 }
 </style>
