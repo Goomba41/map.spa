@@ -41,11 +41,12 @@ export default {
 @import "@/assets/styles/variables.scss";
 .sign-in-link {
   position: fixed;
-  bottom: 0;
+  top: 0;
   right: 0;
   border: 0;
-  margin: 0 1em 0.5em 0;
+  margin: 0.5em 1em 0 0;
   z-index: 10002;
+  font-size: 1rem;
   &:hover {
     color: lighten(map-get($other-colors, text-default), 20%);
   }

@@ -36,10 +36,15 @@
       class="map shadow"
       v-if="showMap"
       :zoom="zoom"
+      :maxZoom="maxZoom"
+      :minZoom="minZoom"
       :center="center"
       :options="mapOptions"
+      :bounds="bounds"
+      :max-bounds="maxBounds"
     >
       <l-tile-layer :url="url" :attribution="attribution" />
+      <l-geo-json :geojson="geojson" :options-style="styleFunction" />
       <l-marker-cluster>
         <l-marker :lat-lng="withPopup">
           <l-popup>
@@ -71,7 +76,8 @@
 </template>
 
 <script>
-import { latLng } from "leaflet";
+import axios from "axios";
+import { latLngBounds, latLng } from "leaflet";
 export default {
   name: "Map",
   props: {
@@ -93,14 +99,26 @@ export default {
   },
   data() {
     return {
-      zoom: 13,
+      geojson: null,
+      borderColor: "#4acaa7",
+      fillColor: "#4acaa7",
+      maxZoom: 18,
+      minZoom: 6.5,
       center: latLng(58.603548647788486, 49.66802292014676),
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       withPopup: latLng(58.614386116848614, 49.6840178479317),
       withPopup2: latLng(58.61417899981327, 49.68506927386554),
-      currentZoom: 11,
+      bounds: latLngBounds([
+        [56.0607618, 46.2637837],
+        [61.0673929, 53.9300112],
+      ]),
+      maxBounds: latLngBounds([
+        [56.0607618, 46.2637837],
+        [61.0673929, 53.9300112],
+      ]),
+      zoom: 9,
       showParagraph: false,
       mapOptions: {
         zoomSnap: 0.5,
@@ -109,6 +127,28 @@ export default {
       searchData: ["name1", "name2", "name3", "name4"],
       searchResult: { active: false, results: [] },
     };
+  },
+  computed: {
+    styleFunction() {
+      const fillColor = this.fillColor; // important! need touch fillColor in computed for re-calculate when change fillColor
+      const borderColor = this.borderColor; // important! need touch fillColor in computed for re-calculate when change fillColor
+      return () => {
+        return {
+          weight: 4,
+          color: borderColor,
+          opacity: 1,
+          fillColor: fillColor,
+          fillOpacity: 0.1,
+        };
+      };
+    },
+  },
+  async created() {
+    axios
+      .get(
+        "https://nominatim.openstreetmap.org/reverse?format=geojson&osm_id=115100&osm_type=R&polygon_geojson=1"
+      )
+      .then((response) => (this.geojson = response.data));
   },
 };
 </script>
