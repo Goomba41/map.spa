@@ -77,5 +77,10 @@ export default {
   left: 0;
   font-size: 0.75em;
   margin: 0 0 1em 1em;
+  transition: outline-color 0.5s ease-in-out;
+
+  &:focus {
+    outline-color: map-get($theme-colors, primary);
+  }
 }
 </style>

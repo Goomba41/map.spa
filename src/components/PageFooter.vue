@@ -91,9 +91,9 @@ export default {
         line-height: 1.75em;
         padding-left: 0;
 
-        &:not(:first-child) {
-          margin: 1em 0 0 0;
-        }
+        // &:not(:first-child) {
+        //   margin: 1em 0 0 0;
+        // }
       }
 
       // No media query necessary for xl breakpoint as it has no upper bound on its width

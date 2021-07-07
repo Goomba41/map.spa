@@ -116,6 +116,7 @@ a {
   border-bottom: solid 2px lighten(map-get($theme-colors, primary), 15%);
   color: inherit;
   transition: color .2s ease-in-out, border-color .2s ease-in-out;
+  text-decoration: none;
 
   &:hover {
     border-bottom-color: transparent;
