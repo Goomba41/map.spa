@@ -523,7 +523,6 @@ textarea {
         }
 
         // No media query necessary for xl breakpoint as it has no upper bound on its width
-        padding-right: 2em;
 
         button {
           // Large devices (desktops, less than 1200px)

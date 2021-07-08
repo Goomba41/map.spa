@@ -46,28 +46,25 @@
       <l-tile-layer :url="url" :attribution="attribution" />
       <l-geo-json :geojson="geojson" :options-style="styleFunction" />
       <l-marker-cluster>
-        <l-marker :lat-lng="withPopup">
-          <l-popup>
-            <div>
-              I am a popup
-              <p v-show="showParagraph">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-                Donec finibus semper metus id malesuada.
-              </p>
-            </div>
-          </l-popup>
-        </l-marker>
-        <l-marker :lat-lng="withPopup2">
-          <l-popup>
-            <div>
-              I am a popup
-              <p v-show="showParagraph">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-                Donec finibus semper metus id malesuada.
-              </p>
-            </div>
+        <l-marker
+          :icon="marker.icon"
+          :lat-lng="marker.coordinates"
+          v-for="marker in markers"
+          v-bind:key="marker.id"
+        >
+          <l-popup class="point-info">
+            <img :src="marker.image"/>
+            <h4>{{ marker.name }}</h4>
+            <p v-show="showParagraph" class="line-clamp">
+              {{ marker.description }}
+            </p>
+            <p>
+              <router-link
+                :to="{ name: 'Object', params: { id: marker.id } }"
+              >
+                Узнать подробнее...
+              </router-link>
+            </p>
           </l-popup>
         </l-marker>
       </l-marker-cluster>
@@ -77,7 +74,7 @@
 
 <script>
 import axios from "axios";
-import { latLngBounds, latLng } from "leaflet";
+import { latLngBounds, latLng, icon } from "leaflet";
 export default {
   name: "Map",
   props: {
@@ -108,8 +105,36 @@ export default {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      withPopup: latLng(58.614386116848614, 49.6840178479317),
-      withPopup2: latLng(58.61417899981327, 49.68506927386554),
+      iconAttractionPoint: icon({
+        iconUrl: require("@/assets/images/iconAttractionPoint.webp"),
+        iconSize: [36, 36],
+        iconAnchor: [18, 0],
+      }),
+      iconChurch: icon({
+        iconUrl: require("@/assets/images/iconChurch.webp"),
+        iconSize: [36, 36],
+        iconAnchor: [18, 0],
+      }),
+      iconIndustry: icon({
+        iconUrl: require("@/assets/images/iconIndustry.webp"),
+        iconSize: [36, 36],
+        iconAnchor: [18, 0],
+      }),
+      iconRecreation: icon({
+        iconUrl: require("@/assets/images/iconRecreation.webp"),
+        iconSize: [36, 36],
+        iconAnchor: [18, 0],
+      }),
+      iconSport: icon({
+        iconUrl: require("@/assets/images/iconSport.webp"),
+        iconSize: [36, 36],
+        iconAnchor: [18, 0],
+      }),
+      iconVillage: icon({
+        iconUrl: require("@/assets/images/iconVillage.webp"),
+        iconSize: [36, 36],
+        iconAnchor: [18, 0],
+      }),
       bounds: latLngBounds([
         [56.0607618, 46.2637837],
         [61.0673929, 53.9300112],
@@ -119,7 +144,7 @@ export default {
         [61.0673929, 53.9300112],
       ]),
       zoom: 9,
-      showParagraph: false,
+      showParagraph: true,
       mapOptions: {
         zoomSnap: 0.5,
       },
@@ -141,6 +166,73 @@ export default {
           fillOpacity: 0.1,
         };
       };
+    },
+    markers() {
+      return [
+        {
+          coordinates: latLng(58.6044629110452, 49.66875320602254),
+          name: "Памятник Шаляпину",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: require("@/assets/images/object01.webp"),
+          id: 1,
+          icon: this.iconAttractionPoint,
+        },
+        {
+          coordinates: latLng(58.60356665580581, 49.66803437400654),
+          name: "Театральная площадь",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: require("@/assets/images/object02.webp"),
+          id: 2,
+          icon: this.iconAttractionPoint,
+        },
+        {
+          coordinates: latLng(58.59678289009719, 49.68763668964296),
+          name: "Свято-серафимовский собор",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "",
+          id: 3,
+          icon: this.iconChurch,
+        },
+        {
+          coordinates: latLng(58.61814921582481, 49.66532621669033),
+          name: "Кировский комбинат искусственных кож",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "",
+          id: 4,
+          icon: this.iconIndustry,
+        },
+        {
+          coordinates: latLng(58.5882952890457, 49.652623274795786),
+          name: "Парк имени Кирова",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "",
+          id: 5,
+          icon: this.iconRecreation,
+        },
+        {
+          coordinates: latLng(58.605585705325915, 49.685117193521044),
+          name: "Стадион «Динамо»",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "",
+          id: 6,
+          icon: this.iconSport,
+        },
+        {
+          coordinates: latLng(58.61550599616619, 49.701585956872464),
+          name: "Дымково",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "",
+          id: 7,
+          icon: this.iconVillage,
+        },
+      ];
     },
   },
   async created() {
@@ -243,5 +335,51 @@ export default {
 
 .result-none {
   cursor: not-allowed;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(lg) {
+  }
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(md) {
+  }
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(sm) {
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(xs) {
+  }
+
+  // No media query necessary for xl breakpoint as it has no upper bound on its width
+
+  border-radius: 5px;
+
+  .leaflet-popup-content {
+    margin: 0;
+    display: flex;
+  }
+
+  .point-info {
+    font-size: 0.9rem;
+    color: map-get($other-colors, text-default);
+    p {
+      font-size: 0.7rem;
+      margin: 1rem 0;
+      &.line-clamp {
+        @include shorten-text(4, 1.5em);
+      }
+    }
+    img {
+      width: 100%;
+    }
+    a {
+      color: map-get($other-colors, text-default);
+      &:hover {
+        color: map-get($theme-colors, primary);
+      }
+    }
+  }
 }
 </style>

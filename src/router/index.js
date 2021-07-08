@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    // Домашняя страница
     path: "/",
     name: "Home",
     component: Home,
@@ -24,6 +25,7 @@ const routes = [
     },
   },
   {
+    // Страница с полным постраничным списком отмеченных мест
     path: "/places",
     name: "Places",
     // route level code-splitting
@@ -46,13 +48,10 @@ const routes = [
     },
   },
   {
-    path: "/page-example",
+    // Страница отмеченного места
+    path: "/object/:id",
     name: "Object",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Object.vue"),
+    component: () => import("../views/Object.vue"),
     meta: {
       title: "Example of object page - Example App",
       metaTags: [
@@ -68,12 +67,10 @@ const routes = [
     },
   },
   {
+    // 404 страница (не найдено)
     path: "*",
     name: "404",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ "../views/404.vue"),
+    component: () => import("../views/404.vue"),
     meta: {
       title: "404 - Not Found!",
       metaTags: [

@@ -39,14 +39,36 @@ export default {
 <style lang="scss">
 @import "@/assets/styles/coreStyle.scss";
 @import "@/assets/styles/variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 .sign-in-link {
+  $font-size: 1em;
+  $margin-top: 0.5em;
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(lg) {
+  }
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(md) {
+  }
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(sm) {
+    // height: calc(100%-#{$font});
+    top: calc((-#{$font-size} - #{$margin-top}) * 2 + 100%);
+  }
+  // Extra small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(xs) {
+  }
+
+  // No media query necessary for xl breakpoint as it has no upper bound on its width
   position: fixed;
   top: 0;
   right: 0;
   border: 0;
-  margin: 0.5em 1em 0 0;
+  margin: #{$margin-top} 1em 0 0;
   z-index: 10002;
-  font-size: 1rem;
+  font-size: #{$font-size};
   &:hover {
     color: lighten(map-get($other-colors, text-default), 20%);
   }
