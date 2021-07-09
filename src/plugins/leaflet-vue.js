@@ -1,6 +1,7 @@
 import Vue from "vue";
 import { LMap, LTileLayer, LMarker, LPopup, LGeoJson } from "vue2-leaflet";
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
+// import Vue2LeafletMarkerClusterPie from "vue2-leaflet-markercluster-pie";
 import "leaflet/dist/leaflet.css";
 import "leaflet.markercluster/dist/MarkerCluster.css";
 import "leaflet.markercluster/dist/MarkerCluster.Default.css";
@@ -20,3 +21,4 @@ Vue.component("l-marker", LMarker);
 Vue.component("l-geo-json", LGeoJson);
 Vue.component("l-popup", LPopup);
 Vue.component("l-marker-cluster", Vue2LeafletMarkerCluster);
+// Vue.component("l-marker-cluster-pie", Vue2LeafletMarkerClusterPie);

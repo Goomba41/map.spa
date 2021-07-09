@@ -337,3 +337,27 @@ h2 {
   margin: 0 0 .5625em;
   position: relative;
 }
+
+.marker-cluster-small {
+	background-color: lighten(map-get($theme-colors, primary), 0%);
+	}
+.marker-cluster-small div {
+	background-color: white;
+	}
+
+.marker-cluster-medium {
+	background-color: darken(map-get($theme-colors, primary), 15%);
+	}
+.marker-cluster-medium div {
+	background-color: white;
+	}
+
+.marker-cluster-large {
+	background-color: darken(map-get($theme-colors, primary), 30%);
+	}
+.marker-cluster-large div {
+	background-color: white;
+	}
+  .marker-cluster span {
+  	font-weight: 900;
+  	}

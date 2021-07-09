@@ -45,6 +45,15 @@
     >
       <l-tile-layer :url="url" :attribution="attribution" />
       <l-geo-json :geojson="geojson" :options-style="styleFunction" />
+      <!-- <l-marker-cluster-pie
+        :options="clusterOptions"
+        :key-func="keyFunc"
+        :class-func="classFunc"
+        :title-func="titleFunc"
+        :style-func="styleFunc"
+        :rmax="rmax"
+        @clusterclick="click()"
+      > -->
       <l-marker-cluster>
         <l-marker
           :icon="marker.icon"
@@ -53,21 +62,20 @@
           v-bind:key="marker.id"
         >
           <l-popup class="point-info">
-            <img :src="marker.image"/>
+            <img :src="marker.image" />
             <h4>{{ marker.name }}</h4>
             <p v-show="showParagraph" class="line-clamp">
               {{ marker.description }}
             </p>
             <p>
-              <router-link
-                :to="{ name: 'Object', params: { id: marker.id } }"
-              >
+              <router-link :to="{ name: 'Object', params: { id: marker.id } }">
                 Узнать подробнее...
               </router-link>
             </p>
           </l-popup>
         </l-marker>
       </l-marker-cluster>
+      <!-- </l-marker-cluster-pie> -->
     </l-map>
   </div>
 </template>
@@ -93,6 +101,27 @@ export default {
     searchResultToggle() {
       this.searchResult.active = !this.searchResult.active;
     },
+    // click: function () {
+    //   alert("clusterclick");
+    // },
+    // keyFunc(d) {
+    //   return d.options.marker_data[this.iconStyleField];
+    // },
+    // classFunc(d) {
+    //   return "cluster-marker-segment-color_" + d.data.key;
+    // },
+    // titleFunc(d) {
+    //   return `count: ${d.data.values.length}`;
+    // },
+    // styleFunc(d) {
+    //   const color = this.colorMap[d.data.key];
+    //   return `
+    //     fill: ${color};
+    //     stroke: #444;
+    //     background: ${color};
+    //     border-color: #444;
+    //   `;
+    // },
   },
   data() {
     return {
@@ -151,6 +180,22 @@ export default {
       showMap: true,
       searchData: ["name1", "name2", "name3", "name4"],
       searchResult: { active: false, results: [] },
+      rmax: 35,
+      iconStyleField: "style_field",
+      clusterOptions: {},
+      colorMap: {
+        0: "black",
+        1: "#F00000",
+        2: "#FF0000",
+        3: "#FFF000",
+        4: "#FFFF00",
+        5: "#FFFFF0",
+        6: "#FFFFFF",
+        7: "#0FFFFF",
+        8: "#00FFFF",
+        9: "#000FFF",
+        10: "#0000FF",
+      },
     };
   },
   computed: {
