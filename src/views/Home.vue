@@ -342,17 +342,14 @@ export default {
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
-
     }
 
     // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(xl) {
-
     }
 
     // Medium devices (tablets, less than 992px)
     @include media-breakpoint-down(lg) {
-
     }
 
     // Small devices (landscape phones, less than 768px)
@@ -362,7 +359,6 @@ export default {
 
     // X-Small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(sm) {
-
     }
 
     img {
@@ -437,17 +433,14 @@ img {
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
-
     }
 
     // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(xl) {
-
     }
 
     // Medium devices (tablets, less than 992px)
     @include media-breakpoint-down(lg) {
-
     }
 
     // Small devices (landscape phones, less than 768px)
@@ -457,7 +450,6 @@ img {
 
     // X-Small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(sm) {
-
     }
 
     &:hover {
@@ -519,17 +511,14 @@ textarea {
 
       // X-Large devices (large desktops, less than 1400px)
       @include media-breakpoint-down(xxl) {
-
       }
 
       // Large devices (desktops, less than 1200px)
       @include media-breakpoint-down(xl) {
-
       }
 
       // Medium devices (tablets, less than 992px)
       @include media-breakpoint-down(lg) {
-
       }
 
       // Small devices (landscape phones, less than 768px)
@@ -539,26 +528,29 @@ textarea {
 
       // X-Small devices (portrait phones, less than 576px)
       @include media-breakpoint-down(sm) {
-
       }
 
       li {
         // XX-Large devices (larger desktops)
         // No media query since the xxl breakpoint has no upper bound on its width
+        width: 100%;
+        &:last-of-type{
+          padding-left: 1rem;
+        }
+        &:first-of-type{
+          padding-right: 1rem;
+        }
 
         // X-Large devices (large desktops, less than 1400px)
         @include media-breakpoint-down(xxl) {
-
         }
 
         // Large devices (desktops, less than 1200px)
         @include media-breakpoint-down(xl) {
-
         }
 
         // Medium devices (tablets, less than 992px)
         @include media-breakpoint-down(lg) {
-
         }
 
         // Small devices (landscape phones, less than 768px)
@@ -569,26 +561,23 @@ textarea {
 
         // X-Small devices (portrait phones, less than 576px)
         @include media-breakpoint-down(sm) {
-
         }
 
         button {
           // XX-Large devices (larger desktops)
           // No media query since the xxl breakpoint has no upper bound on its width
+          width: 100%;
 
           // X-Large devices (large desktops, less than 1400px)
           @include media-breakpoint-down(xxl) {
-
           }
 
           // Large devices (desktops, less than 1200px)
           @include media-breakpoint-down(xl) {
-
           }
 
           // Medium devices (tablets, less than 992px)
           @include media-breakpoint-down(lg) {
-
           }
 
           // Small devices (landscape phones, less than 768px)
@@ -598,7 +587,6 @@ textarea {
 
           // X-Small devices (portrait phones, less than 576px)
           @include media-breakpoint-down(sm) {
-
           }
         }
       }
@@ -611,17 +599,14 @@ textarea {
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
-
     }
 
     // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(xl) {
-
     }
 
     // Medium devices (tablets, less than 992px)
     @include media-breakpoint-down(lg) {
-
     }
 
     // Small devices (landscape phones, less than 768px)
@@ -631,7 +616,6 @@ textarea {
 
     // X-Small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(sm) {
-
     }
 
     width: 50%;
@@ -654,27 +638,22 @@ textarea {
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
-
     }
 
     // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(xl) {
-
     }
 
     // Medium devices (tablets, less than 992px)
     @include media-breakpoint-down(lg) {
-
     }
 
     // Small devices (landscape phones, less than 768px)
     @include media-breakpoint-down(md) {
-
     }
 
     // X-Small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(sm) {
-
     }
 
     &:not(:last-child) {
@@ -688,22 +667,18 @@ textarea {
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
-
     }
 
     // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(xl) {
-
     }
 
     // Medium devices (tablets, less than 992px)
     @include media-breakpoint-down(lg) {
-
     }
 
     // Small devices (landscape phones, less than 768px)
     @include media-breakpoint-down(md) {
-
     }
 
     // X-Small devices (portrait phones, less than 576px)
@@ -722,17 +697,14 @@ textarea {
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
-
     }
 
     // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(xl) {
-
     }
 
     // Medium devices (tablets, less than 992px)
     @include media-breakpoint-down(lg) {
-
     }
 
     // Small devices (landscape phones, less than 768px)
@@ -742,7 +714,6 @@ textarea {
 
     // X-Small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(sm) {
-
     }
   }
   &.authors {
@@ -753,17 +724,14 @@ textarea {
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
-
     }
 
     // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(xl) {
-
     }
 
     // Medium devices (tablets, less than 992px)
     @include media-breakpoint-down(lg) {
-
     }
 
     // Small devices (landscape phones, less than 768px)
@@ -793,17 +761,14 @@ textarea {
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
-
     }
 
     // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(xl) {
-
     }
 
     // Medium devices (tablets, less than 992px)
     @include media-breakpoint-down(lg) {
-
     }
 
     // Small devices (landscape phones, less than 768px)
@@ -814,7 +779,6 @@ textarea {
 
     // X-Small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(sm) {
-
     }
 
     img {
@@ -826,22 +790,18 @@ textarea {
 
       // X-Large devices (large desktops, less than 1400px)
       @include media-breakpoint-down(xxl) {
-
       }
 
       // Large devices (desktops, less than 1200px)
       @include media-breakpoint-down(xl) {
-
       }
 
       // Medium devices (tablets, less than 992px)
       @include media-breakpoint-down(lg) {
-
       }
 
       // Small devices (landscape phones, less than 768px)
       @include media-breakpoint-down(md) {
-
       }
 
       // X-Small devices (portrait phones, less than 576px)

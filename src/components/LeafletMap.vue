@@ -23,9 +23,11 @@
         <div
           class="result"
           v-for="result in searchResult.results"
-          :key="result"
+          :key="result.id"
+          @click="toMapPoint(result.coordinates)"
         >
-          {{ result }}
+          <img :src="result.icon.options.iconUrl" alt="" />
+          {{ result.name }}
         </div>
       </template>
       <template v-else
@@ -42,6 +44,7 @@
       :options="mapOptions"
       :bounds="bounds"
       :max-bounds="maxBounds"
+      ref="mainMap"
     >
       <l-tile-layer :url="url" :attribution="attribution" />
       <l-geo-json :geojson="geojson" :options-style="styleFunction" />
@@ -54,7 +57,7 @@
         :rmax="rmax"
         @clusterclick="click()"
       > -->
-      <l-marker-cluster>
+      <l-marker-cluster ref="mainCluster" :options="clusterOptions">
         <l-marker
           :icon="marker.icon"
           :lat-lng="marker.coordinates"
@@ -94,18 +97,46 @@ export default {
   props: {
     msg: String,
   },
+
+  // {
+  //   coordinates: latLng(58.6044629110452, 49.66875320602254),
+  //   name: "Памятник Шаляпину",
+  //   description:
+  //     "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+  //   image: require("@/assets/images/object01.webp"),
+  //   id: 1,
+  //   icon: this.iconAttractionPoint,
+  // },
+
   methods: {
     searchRequest(value) {
-      var list = [];
-      this.searchData.forEach((element) => {
-        if (element.indexOf(value) !== -1) {
-          list.push(element);
-        }
-      });
-      this.searchResult.results = list;
+      if (value !== "") {
+        var list = [];
+        this.markers.forEach((element) => {
+          if (
+            element.name.indexOf(value) !== -1 ||
+            element.description.indexOf(value) !== -1
+          ) {
+            list.push(element);
+          }
+        });
+        this.searchResult.results = list;
+      } else {
+        this.searchResult.results = [];
+      }
     },
     searchResultToggle() {
       this.searchResult.active = !this.searchResult.active;
+    },
+    toMapPoint(coordinates) {
+      var markerBounds = latLngBounds([coordinates]);
+      this.$refs.mainMap.mapObject.fitBounds(markerBounds);
+      this.$refs.mainCluster.mapObject.eachLayer((layer) => {
+        let ct = layer.getLatLng();
+        if (ct.lat === coordinates.lat && ct.lng === coordinates.lng) {
+          layer.openPopup();
+        }
+      });
     },
     // click: function () {
     //   alert("clusterclick");
@@ -184,11 +215,10 @@ export default {
         zoomSnap: 0.5,
       },
       showMap: true,
-      searchData: ["name1", "name2", "name3", "name4"],
       searchResult: { active: false, results: [] },
+      clusterOptions: { showCoverageOnHover: false },
       // rmax: 35,
       // iconStyleField: "style_field",
-      // clusterOptions: {},
       // colorMap: {
       //   0: "black",
       //   1: "#F00000",
@@ -316,17 +346,14 @@ export default {
 
   // X-Large devices (large desktops, less than 1400px)
   @include media-breakpoint-down(xxl) {
-
   }
 
   // Large devices (desktops, less than 1200px)
   @include media-breakpoint-down(xl) {
-
   }
 
   // Medium devices (tablets, less than 992px)
   @include media-breakpoint-down(lg) {
-
   }
 
   // Small devices (landscape phones, less than 768px)
@@ -365,27 +392,22 @@ export default {
 
   // X-Large devices (large desktops, less than 1400px)
   @include media-breakpoint-down(xxl) {
-
   }
 
   // Large devices (desktops, less than 1200px)
   @include media-breakpoint-down(xl) {
-
   }
 
   // Medium devices (tablets, less than 992px)
   @include media-breakpoint-down(lg) {
-
   }
 
   // Small devices (landscape phones, less than 768px)
   @include media-breakpoint-down(md) {
-
   }
 
   // X-Small devices (portrait phones, less than 576px)
   @include media-breakpoint-down(sm) {
-
   }
 
   &.open {
@@ -393,7 +415,8 @@ export default {
     opacity: 1;
   }
 
-  .result, .result-none {
+  .result,
+  .result-none {
     width: 100%;
     height: 3.25em;
     user-select: none;
@@ -401,7 +424,8 @@ export default {
     padding: 1rem;
     transition: background-color 0.2s linear;
     &:not(:last-child) {
-      border-bottom: 1px solid darken(map-get($other-colors, border-default), 10%);
+      border-bottom: 1px solid
+        darken(map-get($other-colors, border-default), 10%);
     }
   }
 
@@ -410,12 +434,19 @@ export default {
   }
 
   .result {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 100%;
+      margin-right: 1em;
+    }
+
     &:hover {
       background-color: lighten(map-get($other-colors, border-default), 10%);
     }
   }
 }
-
 
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
@@ -425,27 +456,22 @@ export default {
 
   // X-Large devices (large desktops, less than 1400px)
   @include media-breakpoint-down(xxl) {
-
   }
 
   // Large devices (desktops, less than 1200px)
   @include media-breakpoint-down(xl) {
-
   }
 
   // Medium devices (tablets, less than 992px)
   @include media-breakpoint-down(lg) {
-
   }
 
   // Small devices (landscape phones, less than 768px)
   @include media-breakpoint-down(md) {
-
   }
 
   // X-Small devices (portrait phones, less than 576px)
   @include media-breakpoint-down(sm) {
-
   }
 
   .leaflet-popup-content {

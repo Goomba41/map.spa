@@ -30,12 +30,10 @@ export default {
 
   // X-Large devices (large desktops, less than 1400px)
   @include media-breakpoint-down(xxl) {
-
   }
 
   // Large devices (desktops, less than 1200px)
   @include media-breakpoint-down(xl) {
-
   }
 
   // Medium devices (tablets, less than 992px)
@@ -102,8 +100,6 @@ export default {
 
   // X-Small devices (portrait phones, less than 576px)
   @include media-breakpoint-down(sm) {
-
   }
-
 }
 </style>

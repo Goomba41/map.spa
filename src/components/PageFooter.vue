@@ -46,8 +46,8 @@ export default {
 
 #footer {
   border-top: 0;
-  color: map-get($other-colors, "text-default-lighter");
-  background-color: lighten(map-get($other-colors, "border-default"), 2.2%);
+  color: lighten(map-get($other-colors, "text-default"), 20%);
+  background-color: lighten(map-get($other-colors, "border-default"), 0.5%);
   overflow: hidden;
   margin-top: 2.25rem;
 
@@ -63,22 +63,18 @@ export default {
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
-
     }
 
     // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(xl) {
-
     }
 
     // Medium devices (tablets, less than 992px)
     @include media-breakpoint-down(lg) {
-
     }
 
     // Small devices (landscape phones, less than 768px)
     @include media-breakpoint-down(md) {
-
     }
 
     // X-Small devices (portrait phones, less than 576px)
@@ -99,22 +95,18 @@ export default {
 
       // X-Large devices (large desktops, less than 1400px)
       @include media-breakpoint-down(xxl) {
-
       }
 
       // Large devices (desktops, less than 1200px)
       @include media-breakpoint-down(xl) {
-
       }
 
       // Medium devices (tablets, less than 992px)
       @include media-breakpoint-down(lg) {
-
       }
 
       // Small devices (landscape phones, less than 768px)
       @include media-breakpoint-down(md) {
-
       }
 
       // X-Small devices (portrait phones, less than 576px)

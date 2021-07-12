@@ -146,13 +146,23 @@ a {
   }
 
   &.alt {
-    border-bottom: solid 1px map-get($other-colors, link-underline-default);
-    color: map-get($other-colors, text-alt);
+    border-bottom: solid 2px lighten(map-get($other-colors, text-default), 15%);
+    color: map-get($theme-colors, primary);
     transition: color .2s ease-in-out, border-color .2s ease-in-out;
 
     &:hover {
       border-bottom-color: transparent;
-      color: map-get($other-colors, 'white');
+      color: map-get($other-colors, text-default);
+      text-decoration: none;
+    }
+  }
+
+  &.icon {
+    color: lighten(map-get($theme-colors, primary), 30%);
+    transition: color .2s ease-in-out, border-color .2s ease-in-out;
+
+    &:hover {
+      color: lighten(map-get($theme-colors, primary), 15%);
       text-decoration: none;
     }
   }

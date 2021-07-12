@@ -39,7 +39,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   background: map-get($theme-colors, primary);
-  color: map-get($other-colors, text-alt);
+  color: lighten(map-get($theme-colors, primary), 30%);
   height: 100%;
   overflow-y: auto;
   position: fixed;
@@ -72,7 +72,6 @@ export default {
 
   // Small devices (landscape phones, less than 768px)
   @include media-breakpoint-down(md) {
-
   }
 
   // X-Small devices (portrait phones, less than 576px)

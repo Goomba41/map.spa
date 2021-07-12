@@ -102,7 +102,6 @@ export default {
   @include media-breakpoint-down(sm) {
     // height: 72.5vh;
   }
-
 }
 
 span.primary {

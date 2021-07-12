@@ -2,31 +2,31 @@
   <footer>
     <ul class="icons">
       <li>
-        <a class="alt" href="https://vk.com/goomba41" target="_blank"
+        <a class="icon" href="https://vk.com/goomba41" target="_blank"
           ><font-awesome-icon :icon="['fab', 'vk']" class="icon"
         /></a>
       </li>
       <li>
-        <a class="alt" href="https://github.com/Goomba41" target="_blank"
+        <a class="icon" href="https://github.com/Goomba41" target="_blank"
           ><font-awesome-icon :icon="['fab', 'github']" class="icon"
         /></a>
       </li>
       <li>
         <a
-          class="alt"
+          class="icon"
           href="https://www.instagram.com/goomba41/"
           target="_blank"
           ><font-awesome-icon :icon="['fab', 'instagram']" class="icon"
         /></a>
       </li>
       <li>
-        <a class="alt" href="https://t.me/Goomba_41" target="_blank"
+        <a class="icon" href="https://t.me/Goomba_41" target="_blank"
           ><font-awesome-icon :icon="['fab', 'telegram']" class="icon"
         /></a>
       </li>
       <li>
         <a
-          class="alt"
+          class="icon"
           href="mailto:anton.borodawkin@yandex.ru?subject=Вопрос по «Карте города Кирова»"
           target="_blank"
           ><font-awesome-icon
@@ -35,7 +35,7 @@
         /></a>
       </li>
       <li>
-        <a class="alt" href="https://goomba.ru" target="_blank"
+        <a class="icon" href="https://goomba.ru" target="_blank"
           ><font-awesome-icon
             :icon="['fas', 'user-circle']"
             class="icon"
@@ -63,7 +63,6 @@ export default {
 @import "~bootstrap/scss/mixins";
 
 footer {
-
   a {
     border: none;
   }
@@ -80,22 +79,18 @@ footer {
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
-
     }
 
     // Large devices (desktops, less than 1200px)
     @include media-breakpoint-down(xl) {
-
     }
 
     // Medium devices (tablets, less than 992px)
     @include media-breakpoint-down(lg) {
-
     }
 
     // Small devices (landscape phones, less than 768px)
     @include media-breakpoint-down(md) {
-
     }
 
     // X-Small devices (portrait phones, less than 576px)
@@ -114,17 +109,14 @@ footer {
 
   // X-Large devices (large desktops, less than 1400px)
   @include media-breakpoint-down(xxl) {
-
   }
 
   // Large devices (desktops, less than 1200px)
   @include media-breakpoint-down(xl) {
-
   }
 
   // Medium devices (tablets, less than 992px)
   @include media-breakpoint-down(lg) {
-
   }
 
   // Small devices (landscape phones, less than 768px)
