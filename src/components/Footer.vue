@@ -46,12 +46,6 @@
   </footer>
 </template>
 
-<!-- faEnvelopeOpenText,
-faUserCircle,
-faVk,
-faGithub,
-faInstagram, -->
-
 <script>
 export default {
   name: "Footer",
@@ -69,16 +63,13 @@ export default {
 @import "~bootstrap/scss/mixins";
 
 footer {
-  flex-shrink: 0;
-  bottom: 0;
-  left: 0;
-  padding: 2em 3em;
-  width: 100%;
+
   a {
     border: none;
   }
   ul {
-    // No media query necessary for xl breakpoint as it has no upper bound on its width
+    // XX-Large devices (larger desktops)
+    // No media query since the xxl breakpoint has no upper bound on its width
     margin: 0;
     cursor: default;
     list-style: none;
@@ -87,33 +78,62 @@ footer {
     justify-content: space-between;
     font-size: 1.5em;
 
+    // X-Large devices (large desktops, less than 1400px)
+    @include media-breakpoint-down(xxl) {
+
+    }
+
     // Large devices (desktops, less than 1200px)
-    @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(xl) {
+
     }
+
     // Medium devices (tablets, less than 992px)
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
+
     }
+
     // Small devices (landscape phones, less than 768px)
-    @include media-breakpoint-down(sm) {
+    @include media-breakpoint-down(md) {
+
     }
-    // Extra small devices (portrait phones, less than 576px)
-    @include media-breakpoint-down(xs) {
+
+    // X-Small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(sm) {
       font-size: 1em;
     }
   }
 
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
+  flex-shrink: 0;
+  bottom: 0;
+  left: 0;
+  padding: 2em 3em;
+  width: 100%;
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+
+  }
+
   // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-down(xl) {
+
   }
+
   // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
+
   }
+
   // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     padding: 2em;
   }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
+
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
     padding: 1.5em;
   }
 }

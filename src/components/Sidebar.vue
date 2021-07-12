@@ -33,7 +33,8 @@ export default {
 @import "@/assets/styles/variables.scss";
 
 #sidebar {
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -49,12 +50,18 @@ export default {
   z-index: 10002;
   transition: transform 0.5s ease;
 
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
     width: 20em;
   }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+    width: 20em;
+  }
+
   // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     width: 23em;
     transform: translateX(23em);
     right: 0;
@@ -62,7 +69,13 @@ export default {
       transform: translateX(0em);
     }
   }
+
   // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
+
+  }
+
+  // X-Small devices (portrait phones, less than 576px)
   @include media-breakpoint-down(sm) {
     width: 17em;
     transform: translateX(17em);
@@ -70,9 +83,6 @@ export default {
     .sidebar-show & {
       transform: translateX(0em);
     }
-  }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
   }
 }
 </style>

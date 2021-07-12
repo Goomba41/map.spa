@@ -60,24 +60,33 @@
 @import '@/assets/styles/variables';
 
 .app {
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
-    font-size: 11pt;
-  }
-  // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
-    font-size: 12pt;
-  }
-  // Small devices (landscape phones, less than 768px)
+  // X-Small devices (portrait phones, less than 576px)
   @include media-breakpoint-down(sm) {
     font-size: 12pt;
   }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
+
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
     font-size: 12pt;
   }
 
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+    font-size: 12pt;
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+    font-size: 12pt;
+  }
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+    font-size: 12pt;
+  }
+
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   background: map-get($other-colors, 'white');
   color: map-get($other-colors, text-default);
   font-family: 'Ubuntu Regular', sans-serif;
@@ -88,23 +97,35 @@
 }
 
 .container {
-  // Large devices (desktops, less than 1200px)
-  // @include media-breakpoint-down(lg) {
-  // }
-  // Medium devices (tablets, less than 992px)
-  // @include media-breakpoint-down(md) {
-  // }
-  // Small devices (landscape phones, less than 768px)
-  // @include media-breakpoint-down(sm) {
-  // }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
     max-width: calc(100% - 3.375em);
-    padding: 2em 0;
+    padding: 2em 0 0;
     width: 100%;
   }
 
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
+    padding: 2em 0 0;
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+    padding: 2em 0 0;
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+
+  }
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+
+  }
+
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   margin: 0 auto;
   max-width: calc(100% - 4.5em);
   padding: 6em 0 4em;
@@ -197,24 +218,33 @@ input {
 
 input,
 textarea {
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
-    font-size: 11pt;
-  }
-  // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
-    font-size: 12pt;
-  }
-  // Small devices (landscape phones, less than 768px)
+  // X-Small devices (portrait phones, less than 576px)
   @include media-breakpoint-down(sm) {
     font-size: 12pt;
   }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
+
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
     font-size: 12pt;
   }
 
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+    font-size: 12pt;
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+    font-size: 11pt;
+  }
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+    font-size: 11pt;
+  }
+
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   appearance: none;
   border: solid 2px map-get($other-colors, 'text-default');
   border-radius: 5px;
@@ -289,24 +319,33 @@ header {
 }
 
 h1 {
-  // Large devices (desktops, less than 1200px)
-  // @include media-breakpoint-down(lg) {
-  //   font-size: 3.5em;
-  // }
-  // Medium devices (tablets, less than 992px)
-  // @include media-breakpoint-down(md) {
-  //   font-size: 3.5em;
-  // }
-  // Small devices (landscape phones, less than 768px)
-  // @include media-breakpoint-down(sm) {
-  //   font-size: 3.5em;
-  // }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
     font-size: 2.5em;
   }
 
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
+  // Small devices (landscape phones, less than 768px)
+  // @include media-breakpoint-down(md) {
+  //
+  // }
+
+  // Medium devices (tablets, less than 992px)
+  // @include media-breakpoint-down(lg) {
+  //
+  // }
+
+  // Large devices (desktops, less than 1200px)
+  // @include media-breakpoint-down(xl) {
+  //
+  // }
+
+  // X-Large devices (large desktops, less than 1400px)
+  // @include media-breakpoint-down(xxl) {
+  //
+  // }
+
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   color: map-get($theme-colors, primary);
   font-family: 'Ubuntu Bold';
   font-size: 3.5em;
@@ -315,21 +354,33 @@ h1 {
 }
 
 h2 {
-  // Large devices (desktops, less than 1200px)
-  // @include media-breakpoint-down(lg) {
-  // }
-  // Medium devices (tablets, less than 992px)
-  // @include media-breakpoint-down(md) {
-  // }
-  // Small devices (landscape phones, less than 768px)
-  // @include media-breakpoint-down(sm) {
-  // }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
     font-size: 1.5em;
   }
 
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
+  // Small devices (landscape phones, less than 768px)
+  // @include media-breakpoint-down(md) {
+  //
+  // }
+
+  // Medium devices (tablets, less than 992px)
+  // @include media-breakpoint-down(lg) {
+  //
+  // }
+
+  // Large devices (desktops, less than 1200px)
+  // @include media-breakpoint-down(xl) {
+  //
+  // }
+
+  // X-Large devices (large desktops, less than 1400px)
+  // @include media-breakpoint-down(xxl) {
+  //
+  // }
+
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   color: map-get($other-colors, text-default);
   font-family: 'Ubuntu Medium';
   font-size: 1.75em;
@@ -358,6 +409,37 @@ h2 {
 .marker-cluster-large div {
 	background-color: white;
 	}
-  .marker-cluster span {
-  	font-weight: 900;
-  	}
+.marker-cluster span {
+	font-weight: 900;
+	}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 5px;
+    padding: 0;
+}
+.leaflet-popup-content {
+    margin: 0;
+    min-width: 400px;
+}
+.leaflet-popup-content > div {
+    display: flex;
+}
+.leaflet-popup-content {
+  .point-info {
+    margin: 1rem;
+    width: 50%;
+  }
+  .point-image {
+    padding: 0px;
+    margin: 0px;
+    background: lightgray;
+    width: 50%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+  }
+}

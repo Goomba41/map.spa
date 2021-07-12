@@ -24,11 +24,22 @@ export default {
 @import "~bootstrap/scss/mixins";
 @import "@/assets/styles/variables.scss";
 #sidebarToggle {
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
+  display: none;
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+
   }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+
+  }
+
   // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     backface-visibility: hidden;
     transition: transform 0.5s ease;
     display: block;
@@ -81,17 +92,18 @@ export default {
       }
     }
   }
+
   // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     .sidebar-show & {
       transform: translateX(-17em);
     }
   }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
+
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
+
   }
 
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
-  display: none;
 }
 </style>

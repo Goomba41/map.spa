@@ -46,22 +46,8 @@ export default {
   $font-size: 1em;
   $margin-top: 0.5em;
 
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
-  }
-  // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
-  }
-  // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(sm) {
-    // height: calc(100%-#{$font});
-    top: calc((-#{$font-size} - #{$margin-top}) * 2 + 100%);
-  }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
-  }
-
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   position: fixed;
   top: 0;
   right: 0;
@@ -69,31 +55,40 @@ export default {
   margin: #{$margin-top} 1em 0 0;
   z-index: 10002;
   font-size: #{$font-size};
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+    top: calc((-#{$font-size} - #{$margin-top}) * 2 + 100%);
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
+
+  }
+
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
+
+  }
+
   &:hover {
     color: lighten(map-get($other-colors, text-default), 20%);
   }
 }
 
 .scrollTop {
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
-    margin: 0 0 1em 1em;
-  }
-  // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
-    margin: 0 0 1em 0.5em;
-  }
-  // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(sm) {
-    margin: 0 0 1em 0.5em;
-  }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
-    margin: 0 0 1em 1.75em;
-    background-color: transparentize(map-get($theme-colors, primary), 0.3);
-  }
-
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   position: fixed;
   z-index: 10003;
   bottom: 0;
@@ -101,6 +96,33 @@ export default {
   font-size: 0.75em;
   margin: 0 0 1em 1em;
   transition: outline-color 0.5s ease-in-out;
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+    margin: 0 0 1em 1em;
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+    margin: 0 0 1em 0.5em;
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
+    margin: 0 0 1em 0.5em;
+    background-color: transparentize(map-get($theme-colors, primary), 0.3);
+  }
+
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
+    margin: 0 0 1em 1.75em;
+    background-color: transparentize(map-get($theme-colors, primary), 0.3);
+  }
 
   &:focus {
     outline-color: map-get($theme-colors, primary);

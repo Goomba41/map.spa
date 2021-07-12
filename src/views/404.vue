@@ -69,24 +69,40 @@ export default {
 @import "~bootstrap/scss/mixins";
 @import "@/assets/styles/variables.scss";
 .main {
-  @include media-breakpoint-up(sm) {
-    height: 18.4vh;
-  }
-  @include media-breakpoint-up(md) {
-    height: 38.4vh;
-  }
-  @include media-breakpoint-up(lg) {
-    height: 48.4vh;
-  }
-  @include media-breakpoint-up(xl) {
-    height: 78.4vh;
-  }
-  height: 8.4vh;
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+    // height: 70vh;
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+    // height: 48.4vh;
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+    // height: 38.4vh;
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
+    // height: 18.4vh;
+  }
+
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
+    // height: 72.5vh;
+  }
+
 }
 
 span.primary {

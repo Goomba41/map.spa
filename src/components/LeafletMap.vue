@@ -12,7 +12,7 @@
     />
     <div
       id="search-results"
-      :class="[searchResult.active ? 'active' : '', 'search-results shadow']"
+      :class="[searchResult.active ? 'open' : '', 'search-results shadow']"
     >
       <template
         v-if="
@@ -29,7 +29,7 @@
         </div>
       </template>
       <template v-else
-        ><div class="result">Ничего не найдено ಠ╭╮ಠ</div></template
+        ><div class="result-none">Ничего не найдено ಠ╭╮ಠ</div></template
       >
     </div>
     <l-map
@@ -61,17 +61,23 @@
           v-for="marker in markers"
           v-bind:key="marker.id"
         >
-          <l-popup class="point-info">
-            <img :src="marker.image" />
-            <h4>{{ marker.name }}</h4>
-            <p v-show="showParagraph" class="line-clamp">
-              {{ marker.description }}
-            </p>
-            <p>
-              <router-link :to="{ name: 'Object', params: { id: marker.id } }">
-                Узнать подробнее...
-              </router-link>
-            </p>
+          <l-popup>
+            <div class="point-image">
+              <img :src="marker.image" />
+            </div>
+            <div class="point-info">
+              <h4>{{ marker.name }}</h4>
+              <p v-show="showParagraph" class="line-clamp">
+                {{ marker.description }}
+              </p>
+              <p>
+                <router-link
+                  :to="{ name: 'Object', params: { id: marker.id } }"
+                >
+                  Узнать подробнее...
+                </router-link>
+              </p>
+            </div>
           </l-popup>
         </l-marker>
       </l-marker-cluster>
@@ -180,22 +186,22 @@ export default {
       showMap: true,
       searchData: ["name1", "name2", "name3", "name4"],
       searchResult: { active: false, results: [] },
-      rmax: 35,
-      iconStyleField: "style_field",
-      clusterOptions: {},
-      colorMap: {
-        0: "black",
-        1: "#F00000",
-        2: "#FF0000",
-        3: "#FFF000",
-        4: "#FFFF00",
-        5: "#FFFFF0",
-        6: "#FFFFFF",
-        7: "#0FFFFF",
-        8: "#00FFFF",
-        9: "#000FFF",
-        10: "#0000FF",
-      },
+      // rmax: 35,
+      // iconStyleField: "style_field",
+      // clusterOptions: {},
+      // colorMap: {
+      //   0: "black",
+      //   1: "#F00000",
+      //   2: "#FF0000",
+      //   3: "#FFF000",
+      //   4: "#FFFF00",
+      //   5: "#FFFFF0",
+      //   6: "#FFFFFF",
+      //   7: "#0FFFFF",
+      //   8: "#00FFFF",
+      //   9: "#000FFF",
+      //   10: "#0000FF",
+      // },
     };
   },
   computed: {
@@ -237,7 +243,7 @@ export default {
           name: "Свято-серафимовский собор",
           description:
             "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-          image: "",
+          image: require("@/assets/images/object06.webp"),
           id: 3,
           icon: this.iconChurch,
         },
@@ -246,7 +252,7 @@ export default {
           name: "Кировский комбинат искусственных кож",
           description:
             "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-          image: "",
+          image: require("@/assets/images/object03.webp"),
           id: 4,
           icon: this.iconIndustry,
         },
@@ -255,7 +261,7 @@ export default {
           name: "Парк имени Кирова",
           description:
             "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-          image: "",
+          image: require("@/assets/images/object07.webp"),
           id: 5,
           icon: this.iconRecreation,
         },
@@ -264,7 +270,7 @@ export default {
           name: "Стадион «Динамо»",
           description:
             "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-          image: "",
+          image: require("@/assets/images/object05.webp"),
           id: 6,
           icon: this.iconSport,
         },
@@ -273,7 +279,7 @@ export default {
           name: "Дымково",
           description:
             "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-          image: "",
+          image: require("@/assets/images/object04.webp"),
           id: 7,
           icon: this.iconVillage,
         },
@@ -303,24 +309,35 @@ export default {
 }
 
 .map {
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
-  }
-  // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
-  }
-  // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(sm) {
-    height: 60vh;
-  }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
-    margin-bottom: 4em;
-  }
-
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   width: 100%;
   height: 80vh;
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
+    height: 60vh;
+  }
+
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
+    margin-bottom: 4em;
+  }
 }
 
 .map-search {
@@ -328,20 +345,8 @@ export default {
 }
 
 .search-results {
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
-  }
-  // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
-  }
-  // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(sm) {
-  }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
-  }
-
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   visibility: hidden;
   opacity: 0;
   display: flex;
@@ -357,49 +362,91 @@ export default {
   width: 100%;
   // max-width: calc(100% - 4.5em);
   // width: calc(100% - 4.5em);
-  &.active {
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
+
+  }
+
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
+
+  }
+
+  &.open {
     visibility: visible;
     opacity: 1;
   }
+
+  .result, .result-none {
+    width: 100%;
+    height: 3.25em;
+    user-select: none;
+    line-height: 1.25em;
+    padding: 1rem;
+    transition: background-color 0.2s linear;
+    &:not(:last-child) {
+      border-bottom: 1px solid darken(map-get($other-colors, border-default), 10%);
+    }
+  }
+
+  .result-none {
+    cursor: not-allowed;
+  }
+
+  .result {
+    &:hover {
+      background-color: lighten(map-get($other-colors, border-default), 10%);
+    }
+  }
 }
 
-.result {
-  width: 100%;
-  height: 3.25em;
-  user-select: none;
-  line-height: 1.25em;
-  padding: 1rem;
-  transition: background-color 0.2s linear;
-  &:not(:last-child) {
-    border-bottom: 1px solid darken(map-get($other-colors, border-default), 10%);
-  }
-  &:hover {
-    background-color: lighten(map-get($other-colors, border-default), 10%);
-  }
-}
-
-.result-none {
-  cursor: not-allowed;
-}
 
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
-  }
-  // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
-  }
-  // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(sm) {
-  }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
-  }
-
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
-
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   border-radius: 5px;
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
+
+  }
+
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
+
+  }
 
   .leaflet-popup-content {
     margin: 0;

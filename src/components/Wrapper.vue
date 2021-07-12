@@ -24,33 +24,43 @@ export default {
 @import "~bootstrap/scss/mixins";
 @import "@/assets/styles/variables.scss";
 #wrapper {
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
+  background: map-get($other-colors, "white");
+  transition: transform 0.5s ease;
+  padding-right: 20em;
+  transform: translateX(0em);
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+
+  }
+
   // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-down(xl) {
     padding-right: 20em;
   }
+
   // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     padding: 44px 0 1px 0;
     right: 0;
     .sidebar-show & {
       transform: translateX(-23em);
     }
   }
+
   // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     right: 0;
     .sidebar-show & {
       transform: translateX(-17em);
     }
   }
-  // Extra small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(xs) {
-  }
 
-  // No media query necessary for xl breakpoint as it has no upper bound on its width
-  background: map-get($other-colors, "white");
-  transition: transform 0.5s ease;
-  padding-right: 20em;
-  transform: translateX(0em);
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
+
+  }
 }
 </style>

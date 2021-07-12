@@ -49,23 +49,11 @@ export default {
   color: map-get($other-colors, "text-default-lighter");
   background-color: lighten(map-get($other-colors, "border-default"), 2.2%);
   overflow: hidden;
+  margin-top: 2.25rem;
 
   ul {
-    // Large devices (desktops, less than 1200px)
-    @include media-breakpoint-down(lg) {
-    }
-    // Medium devices (tablets, less than 992px)
-    @include media-breakpoint-down(md) {
-    }
-    // Small devices (landscape phones, less than 768px)
-    @include media-breakpoint-down(sm) {
-    }
-    // Extra small devices (portrait phones, less than 576px)
-    @include media-breakpoint-down(xs) {
-      flex-flow: column;
-    }
-
-    // No media query necessary for xl breakpoint as it has no upper bound on its width
+    // XX-Large devices (larger desktops)
+    // No media query since the xxl breakpoint has no upper bound on its width
     line-height: 1em;
     list-style: none;
     padding: 0;
@@ -73,36 +61,69 @@ export default {
     flex-flow: row;
     justify-content: center;
 
+    // X-Large devices (large desktops, less than 1400px)
+    @include media-breakpoint-down(xxl) {
+
+    }
+
+    // Large devices (desktops, less than 1200px)
+    @include media-breakpoint-down(xl) {
+
+    }
+
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(lg) {
+
+    }
+
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(md) {
+
+    }
+
+    // X-Small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(sm) {
+      flex-flow: column;
+    }
+
     li,
     &.copyright li {
-      // Large devices (desktops, less than 1200px)
-      @include media-breakpoint-down(lg) {
-      }
-      // Medium devices (tablets, less than 992px)
-      @include media-breakpoint-down(md) {
-      }
-      // Small devices (landscape phones, less than 768px)
-      @include media-breakpoint-down(sm) {
-      }
-      // Extra small devices (portrait phones, less than 576px)
-      @include media-breakpoint-down(xs) {
-        border-left: 0;
-        display: block;
-        line-height: 1.75em;
-        padding-left: 0;
-
-        // &:not(:first-child) {
-        //   margin: 1em 0 0 0;
-        // }
-      }
-
-      // No media query necessary for xl breakpoint as it has no upper bound on its width
+      // XX-Large devices (larger desktops)
+      // No media query since the xxl breakpoint has no upper bound on its width
       border-left: solid 1px map-get($other-colors, "border-default-darker");
       display: inline-block;
       font-size: 0.8em;
       margin-left: 1em;
       padding-left: 1em;
       text-align: center;
+
+      // X-Large devices (large desktops, less than 1400px)
+      @include media-breakpoint-down(xxl) {
+
+      }
+
+      // Large devices (desktops, less than 1200px)
+      @include media-breakpoint-down(xl) {
+
+      }
+
+      // Medium devices (tablets, less than 992px)
+      @include media-breakpoint-down(lg) {
+
+      }
+
+      // Small devices (landscape phones, less than 768px)
+      @include media-breakpoint-down(md) {
+
+      }
+
+      // X-Small devices (portrait phones, less than 576px)
+      @include media-breakpoint-down(sm) {
+        border-left: 0;
+        display: block;
+        line-height: 1.75em;
+        padding-left: 0;
+      }
 
       &:first-child {
         border-left: 0;
