@@ -534,10 +534,10 @@ textarea {
         // XX-Large devices (larger desktops)
         // No media query since the xxl breakpoint has no upper bound on its width
         width: 100%;
-        &:last-of-type{
+        &:last-of-type {
           padding-left: 1rem;
         }
-        &:first-of-type{
+        &:first-of-type {
           padding-right: 1rem;
         }
 

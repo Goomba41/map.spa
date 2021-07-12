@@ -97,25 +97,15 @@ export default {
   props: {
     msg: String,
   },
-
-  // {
-  //   coordinates: latLng(58.6044629110452, 49.66875320602254),
-  //   name: "Памятник Шаляпину",
-  //   description:
-  //     "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-  //   image: require("@/assets/images/object01.webp"),
-  //   id: 1,
-  //   icon: this.iconAttractionPoint,
-  // },
-
   methods: {
     searchRequest(value) {
       if (value !== "") {
         var list = [];
         this.markers.forEach((element) => {
           if (
-            element.name.indexOf(value) !== -1 ||
-            element.description.indexOf(value) !== -1
+            element.name.toLowerCase().indexOf(value.toLowerCase()) !== -1 ||
+            element.description.toLowerCase().indexOf(value.toLowerCase()) !==
+              -1
           ) {
             list.push(element);
           }
