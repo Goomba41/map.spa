@@ -4,11 +4,13 @@
       <b-container>
         <header class="major">
           <h1>{{ pointData.name }}</h1>
-          <img
-          :src="require(`../assets/images/` + pointData.cover)"
-          class="cover shadow"
-          :alt="pointData.as"
-          />
+          <div class="shiny">
+            <img
+            :src="require(`../assets/images/` + pointData.cover)"
+            class="cover shadow"
+            :alt="pointData.as"
+            />
+          </div>
           <h2>
             {{ pointData.description }}
           </h2>
