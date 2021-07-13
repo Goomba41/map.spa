@@ -45,11 +45,35 @@ export default {
 @import "@/assets/styles/variables.scss";
 
 #footer {
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
   border-top: 0;
   color: lighten(map-get($other-colors, "text-default"), 20%);
   background-color: lighten(map-get($other-colors, "border-default"), 0.5%);
   overflow: hidden;
   margin-top: 2.25rem;
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+    padding-bottom: 1.25rem;
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
+  }
+
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
+    flex-flow: column;
+  }
 
   ul {
     // XX-Large devices (larger desktops)

@@ -96,7 +96,7 @@
         <div class="last-list">
           <last-item
             :key="item.id"
-            v-for="item in lastItems"
+            v-for="item in mapPoints.slice(0, 3)"
             :item="item"
           ></last-item>
         </div>
@@ -112,7 +112,7 @@
           Commodo id in arcu ante lorem ipsum sed accumsan erat praesent
           faucibus commodo ac mi lacus.
         </p>
-        <Map></Map>
+        <Map :points="mapPoints"></Map>
       </b-container>
     </section>
     <!-- Section 4. End. -->
@@ -220,25 +220,110 @@ export default {
   mounted() {},
   data() {
     return {
-      lastItems: [
+      mapPoints: [
         {
+          lat: 58.6044629110452,
+          lng: 49.66875320602254,
+          name: "Памятник Шаляпину",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "object01.webp",
           id: 1,
-          p: "author01.webp",
-          f: "Чудиновских",
-          i: "Елена",
-          image: "post01-1.webp",
-          header: "Зосимо-Савватиевская церковь.",
-          fp: "Зосимо-Савватиевская церковь каменная в с. Коршик построена в 1777 году. В результате великого разрушения 30-х годов от этого множества церквей полностью уцелело только семь церквей XVIII столетия. В числе полностью уцелевших была и Зосимо-Савватиевская церковь села Коршик. Она не была закрыта при И. Сталине. По красоте, величию, живописи, художественной отделке резных иконостасов эта церковь была самым лучшим (из оставшихся) памятником церковного зодчества XVIII ст. на территории Кировской области.",
+          icon: "iconAttractionPoint.webp",
+          ap: "author03.webp",
+          as: "Бородавкин",
+          an: "Антон",
           cdate: "2021-04-01",
         },
         {
+          lat: 58.59678289009719,
+          lng: 49.68763668964296,
+          name: "Свято-серафимовский собор",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "object02.webp",
           id: 2,
-          p: "author02.webp",
-          f: "Жаравин",
-          i: "Владимир",
-          image: "post02-1.webp",
-          header: "Заречный парк.",
-          fp:
+          icon: "iconChurch.webp",
+          ap: "author01.webp",
+          as: "Чудиновских",
+          an: "Елена",
+          cdate: "2021-04-01",
+        },
+        {
+          lat: 58.61814921582481,
+          lng: 49.66532621669033,
+          name: "Кировский комбинат искусственных кож",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "object03.webp",
+          id: 3,
+          icon: "iconIndustry.webp",
+          ap: "author02.webp",
+          as: "Жаравин",
+          an: "Владимир",
+          cdate: "2021-04-01",
+        },
+        {
+          lat: 58.5882952890457,
+          lng: 49.652623274795786,
+          name: "Парк имени Кирова",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "object04.webp",
+          id: 4,
+          icon: "iconRecreation.webp",
+          ap: "author02.webp",
+          as: "Жаравин",
+          an: "Владимир",
+          cdate: "2021-04-01",
+        },
+        {
+          lat: 58.605585705325915,
+          lng: 49.685117193521044,
+          name: "Стадион «Динамо»",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "object05.webp",
+          id: 5,
+          icon: "iconSport.webp",
+          ap: "author02.webp",
+          as: "Жаравин",
+          an: "Владимир",
+          cdate: "2021-04-01",
+        },
+        {
+          lat: 58.61550599616619,
+          lng: 49.701585956872464,
+          name: "село Дымково",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "object06.webp",
+          id: 6,
+          icon: "iconVillage.webp",
+          ap: "author01.webp",
+          as: "Чудиновских",
+          an: "Елена",
+          cdate: "2021-04-01",
+        },
+        {
+          lat: 58.20705629839807,
+          lng: 49.28341419164265,
+          name: "Церковь Зосимы и Савватия Соловецких в Коршике",
+          description:
+            "Зосимо-Савватиевская церковь каменная в с. Коршик построена в 1777 году. В результате великого разрушения 30-х годов от этого множества церквей полностью уцелело только семь церквей XVIII столетия. В числе полностью уцелевших была и Зосимо-Савватиевская церковь села Коршик. Она не была закрыта при И. Сталине. По красоте, величию, живописи, художественной отделке резных иконостасов эта церковь была самым лучшим (из оставшихся) памятником церковного зодчества XVIII ст. на территории Кировской области.",
+          image: "object07.webp",
+          id: 7,
+          icon: "iconChurch.webp",
+          ap: "author01.webp",
+          as: "Чудиновских",
+          an: "Елена",
+          cdate: "2021-04-01",
+        },
+        {
+          lat: 58.60168756791216,
+          lng: 49.72507279102687,
+          name: "Заречный парк",
+          description:
             "3 мая 1935 года Кировский горисполком представил в край" +
             "исполком, разработанный земельно-зеленным отделом эскизный план" +
             " будущего парка. В приложении было записано: «Под парк отводится" +
@@ -247,16 +332,26 @@ export default {
             " деревни Субботиха. Парк должен в полной степени использовать" +
             " красоты векового соснового леса с его многочисленными озёрами," +
             " полянами, лугами, рекой и т. д.»",
+          image: "object08.webp",
+          id: 8,
+          icon: "iconRecreation.webp",
+          ap: "author02.webp",
+          as: "Жаравин",
+          an: "Владимир",
           cdate: "2021-04-01",
         },
         {
-          id: 3,
-          p: "author03.webp",
-          f: "Бородавкин",
-          i: "Антон",
-          image: "pic03.webp",
-          header: "Lorem ipsum dolor sit amet, consectetur.",
-          fp: "Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.",
+          lat: 58.60356665580581,
+          lng: 49.66803437400654,
+          name: "Театральная площадь",
+          description:
+            "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+          image: "object09.webp",
+          id: 9,
+          icon: "iconAttractionPoint.webp",
+          ap: "author03.webp",
+          as: "Бородавкин",
+          an: "Антон",
           cdate: "2021-04-01",
         },
       ],
@@ -555,7 +650,12 @@ textarea {
 
         // Small devices (landscape phones, less than 768px)
         @include media-breakpoint-down(md) {
-          padding: 0;
+          &:last-of-type {
+            padding-left: 0;
+          }
+          &:first-of-type {
+            padding-right: 0;
+          }
           padding-bottom: 1.125em;
         }
 

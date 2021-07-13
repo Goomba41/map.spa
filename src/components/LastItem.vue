@@ -3,27 +3,27 @@
     <a href="#" class="image">
       <img
         :src="require(`../assets/images/` + item.image)"
-        alt=""
+        :alt="item.name"
         class="shadow-author"
       />
     </a>
     <div class="description">
       <h4 class="line-clamp">
-        {{ item.header }}
+        {{ item.name }}
       </h4>
       <p class="line-clamp">
-        {{ item.fp }}
+        {{ item.description }}
       </p>
       <div class="signature">
         <span
-          >{{ item.i }} {{ item.f }}<br /><font-awesome-icon
+          >{{ item.an }} {{ item.as }}<br /><font-awesome-icon
             :icon="['fas', 'calendar-alt']"
             class="icon"
           />
           {{ item.cdate }}</span
         >
         <img
-          :src="require(`../assets/images/` + item.p)"
+          :src="require(`../assets/images/` + item.ap)"
           class="author shadow"
           alt=""
         />
@@ -31,7 +31,7 @@
       <b-button
         class="fit small"
         variant="secondary-alt"
-        :to="{ path: '/page-example' }"
+        :to="{ name: 'Object', params: { id: item.id } }"
         >Читать полностью</b-button
       >
     </div>
