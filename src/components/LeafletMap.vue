@@ -67,7 +67,6 @@
           v-for="marker in points"
           v-bind:key="marker.id"
         >
-          <!-- :icon="marker.icon" -->
           <l-icon
             :icon-size="iconSize"
             :icon-anchor="iconAnchor"
@@ -75,8 +74,7 @@
           />
           <l-popup>
             <div class="point-image">
-              <!-- <img :src="marker.image" /> -->
-              <img :src="require(`../assets/images/` + marker.image)" />
+              <img :src="require(`../assets/images/` + marker.cover)" />
             </div>
             <div class="point-info">
               <h4>{{ marker.name }}</h4>

@@ -51,6 +51,7 @@ const routes = [
     // Страница отмеченного места
     path: "/object/:id",
     name: "Object",
+    props: true,
     component: () => import("../views/Object.vue"),
     meta: {
       title: "Место (динамическая смена) - Прогулка по Кирову",

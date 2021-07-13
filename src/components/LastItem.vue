@@ -1,8 +1,8 @@
 <template>
   <article>
-    <a href="#" class="image">
+    <a :href="require(`../assets/images/` + item.cover)" class="image">
       <img
-        :src="require(`../assets/images/` + item.image)"
+        :src="require(`../assets/images/` + item.cover)"
         :alt="item.name"
         class="shadow cover"
       />
@@ -72,9 +72,9 @@ article {
     // XX-Large devices (larger desktops)
     // No media query since the xxl breakpoint has no upper bound on its width
     display: inline-block;
-    padding-right: 2.5em;
+    margin-right: 2.5em;
     vertical-align: middle;
-    width: 60%;
+    width: 30%;
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
@@ -120,8 +120,11 @@ article {
       position: absolute;
       z-index: 10;
       top: -30px;
-      width: 15%;
+      width: 30%;
       left: -30px;
+      padding: 0.25em;
+      background-color: white;
+      border: solid 1px lighten(black, 85%);
 
       // X-Large devices (large desktops, less than 1400px)
       @include media-breakpoint-down(xxl) {
@@ -157,7 +160,7 @@ article {
     flex-direction: column;
     justify-content: space-between;
     min-height: 13.9em;
-    width: 40%;
+    width: 60%;
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
@@ -293,5 +296,4 @@ article {
     }
   }
 }
-
 </style>
