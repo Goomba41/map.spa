@@ -4,7 +4,12 @@
       <img
         :src="require(`../assets/images/` + item.image)"
         :alt="item.name"
-        class="shadow-author"
+        class="shadow cover"
+      />
+      <img
+        :src="require(`../assets/images/` + item.icon)"
+        class="shadow sticker"
+        alt=""
       />
     </a>
     <div class="description">
@@ -25,7 +30,7 @@
         <img
           :src="require(`../assets/images/` + item.ap)"
           class="author shadow"
-          alt=""
+          :alt="item.as"
         />
       </div>
       <b-button
@@ -96,7 +101,7 @@ article {
       width: 100%;
     }
 
-    > img {
+    > img.cover {
       display: block;
       width: 100%;
       -moz-transition: filter 0.2s ease-in-out;
@@ -105,6 +110,42 @@ article {
       transition: filter 0.2s ease-in-out;
       &:hover {
         filter: saturate(200%);
+      }
+    }
+
+    > img.sticker {
+      // XX-Large devices (larger desktops)
+      // No media query since the xxl breakpoint has no upper bound on its width
+      border-radius: 100%;
+      position: absolute;
+      z-index: 10;
+      top: -30px;
+      width: 15%;
+      left: -30px;
+
+      // X-Large devices (large desktops, less than 1400px)
+      @include media-breakpoint-down(xxl) {
+      }
+
+      // Large devices (desktops, less than 1200px)
+      @include media-breakpoint-down(xl) {
+      }
+
+      // Medium devices (tablets, less than 992px)
+      @include media-breakpoint-down(lg) {
+        width: 10%;
+        top: -17px;
+        left: -17px;
+      }
+
+      // Small devices (landscape phones, less than 768px)
+      @include media-breakpoint-down(md) {
+        top: 0;
+        left: 0;
+      }
+
+      // X-Small devices (portrait phones, less than 576px)
+      @include media-breakpoint-down(sm) {
       }
     }
   }
@@ -184,51 +225,16 @@ article {
       margin: 0;
     }
   }
-}
 
-.signature {
-  // XX-Large devices (larger desktops)
-  // No media query since the xxl breakpoint has no upper bound on its width
-  margin: 1em 0;
-  display: flex;
-  font-size: 0.7em;
-  align-items: center;
-  text-align: right;
-  justify-content: flex-end;
-
-  // X-Large devices (large desktops, less than 1400px)
-  @include media-breakpoint-down(xxl) {
-  }
-
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(xl) {
-  }
-
-  // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(lg) {
-  }
-
-  // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(md) {
-  }
-
-  // X-Small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(sm) {
-    margin: 2em 0;
-  }
-
-  span {
-    font-family: "Ubuntu Light Italic";
-    line-height: 1.5em;
-    font-size: 0.85em;
-  }
-
-  .author {
+  .signature {
     // XX-Large devices (larger desktops)
     // No media query since the xxl breakpoint has no upper bound on its width
-    width: 10%;
-    border-radius: 50%;
-    margin-left: 1em;
+    margin: 1em 0;
+    display: flex;
+    font-size: 0.7em;
+    align-items: center;
+    text-align: right;
+    justify-content: flex-end;
 
     // X-Large devices (large desktops, less than 1400px)
     @include media-breakpoint-down(xxl) {
@@ -248,8 +254,44 @@ article {
 
     // X-Small devices (portrait phones, less than 576px)
     @include media-breakpoint-down(sm) {
-      width: 7%;
+      margin: 2em 0;
+    }
+
+    span {
+      font-family: "Ubuntu Light Italic";
+      line-height: 1.5em;
+      font-size: 0.85em;
+    }
+
+    .author {
+      // XX-Large devices (larger desktops)
+      // No media query since the xxl breakpoint has no upper bound on its width
+      width: 10%;
+      border-radius: 50%;
+      margin-left: 1em;
+
+      // X-Large devices (large desktops, less than 1400px)
+      @include media-breakpoint-down(xxl) {
+      }
+
+      // Large devices (desktops, less than 1200px)
+      @include media-breakpoint-down(xl) {
+      }
+
+      // Medium devices (tablets, less than 992px)
+      @include media-breakpoint-down(lg) {
+      }
+
+      // Small devices (landscape phones, less than 768px)
+      @include media-breakpoint-down(md) {
+      }
+
+      // X-Small devices (portrait phones, less than 576px)
+      @include media-breakpoint-down(sm) {
+        width: 7%;
+      }
     }
   }
 }
+
 </style>

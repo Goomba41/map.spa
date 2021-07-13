@@ -11,15 +11,15 @@ const routes = [
     name: "Home",
     component: Home,
     meta: {
-      title: "Home Page - Example App",
+      title: " Главная - Прогулка по Кирову",
       metaTags: [
         {
           name: "description",
-          content: "The home page of our example app.",
+          content: "Главная страница сайта.",
         },
         {
           property: "og:description",
-          content: "The home page of our example app.",
+          content: "Главная страница сайта.",
         },
       ],
     },
@@ -34,15 +34,15 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Places.vue"),
     meta: {
-      title: "Places list - Example App",
+      title: "Места - Прогулка по Кирову",
       metaTags: [
         {
           name: "description",
-          content: "The places list.",
+          content: "Полный список мест, отмеченных на карте.",
         },
         {
           property: "og:description",
-          content: "The places list.",
+          content: "Полный список мест, отмеченных на карте.",
         },
       ],
     },
@@ -53,15 +53,15 @@ const routes = [
     name: "Object",
     component: () => import("../views/Object.vue"),
     meta: {
-      title: "Example of object page - Example App",
+      title: "Место (динамическая смена) - Прогулка по Кирову",
       metaTags: [
         {
           name: "description",
-          content: "The example of object page of our example app.",
+          content: "Динамически изменяемое описание.",
         },
         {
           property: "og:description",
-          content: "The example of object page of our example app.",
+          content: "Динамически изменяемое описание.",
         },
       ],
     },
@@ -72,15 +72,15 @@ const routes = [
     name: "404",
     component: () => import("../views/404.vue"),
     meta: {
-      title: "404 - Not Found!",
+      title: "404 - Не найдено!",
       metaTags: [
         {
           name: "description",
-          content: "This page does not exist!",
+          content: "Страница не существует!",
         },
         {
           property: "og:description",
-          content: "This page does not exist!",
+          content: "Страница не существует!",
         },
       ],
     },

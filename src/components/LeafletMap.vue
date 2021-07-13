@@ -6,6 +6,7 @@
       value=""
       class="map-search"
       placeholder="Поиск"
+      autocomplete="off"
       @input="searchRequest"
       @focus="searchResultToggle"
       @blur="searchResultToggle"
@@ -26,7 +27,10 @@
           :key="result.id"
           @click="toMapPoint(latLng(result.lat, result.lng))"
         >
-          <img :src="require(`../assets/images/` + result.icon)" :alt="result.name" />
+          <img
+            :src="require(`../assets/images/` + result.icon)"
+            :alt="result.name"
+          />
           {{ result.name }}
         </div>
       </template>

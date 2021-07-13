@@ -1,5 +1,12 @@
 import Vue from "vue";
-import { LMap, LTileLayer, LMarker, LPopup, LGeoJson, LIcon } from "vue2-leaflet";
+import {
+  LMap,
+  LTileLayer,
+  LMarker,
+  LPopup,
+  LGeoJson,
+  LIcon,
+} from "vue2-leaflet";
 import Vue2LeafletMarkerCluster from "vue2-leaflet-markercluster";
 // import Vue2LeafletMarkerClusterPie from "vue2-leaflet-markercluster-pie";
 import "leaflet/dist/leaflet.css";
