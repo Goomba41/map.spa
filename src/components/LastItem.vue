@@ -19,19 +19,20 @@
       <p class="line-clamp">
         {{ item.description }}
       </p>
-      <div class="signature">
+      <div class="author-signature">
+        <img
+          :src="require(`../assets/images/` + item.authorPrimary.ap)"
+          class="author shadow"
+          :alt="item.authorPrimary.as"
+        />
         <span
-          >{{ item.an }} {{ item.as }}<br /><font-awesome-icon
+          >{{ item.authorPrimary.an }} {{ item.authorPrimary.as
+          }}<br /><font-awesome-icon
             :icon="['fas', 'calendar-alt']"
             class="icon"
           />
           {{ item.cdate }}</span
         >
-        <img
-          :src="require(`../assets/images/` + item.ap)"
-          class="author shadow"
-          :alt="item.as"
-        />
       </div>
       <b-button
         class="fit small"
@@ -228,72 +229,9 @@ article {
       margin: 0;
     }
   }
-
-  .signature {
-    // XX-Large devices (larger desktops)
-    // No media query since the xxl breakpoint has no upper bound on its width
-    margin: 1em 0;
-    display: flex;
+  .author-signature {
     font-size: 0.7em;
-    align-items: center;
-    text-align: right;
     justify-content: flex-end;
-
-    // X-Large devices (large desktops, less than 1400px)
-    @include media-breakpoint-down(xxl) {
-    }
-
-    // Large devices (desktops, less than 1200px)
-    @include media-breakpoint-down(xl) {
-    }
-
-    // Medium devices (tablets, less than 992px)
-    @include media-breakpoint-down(lg) {
-    }
-
-    // Small devices (landscape phones, less than 768px)
-    @include media-breakpoint-down(md) {
-    }
-
-    // X-Small devices (portrait phones, less than 576px)
-    @include media-breakpoint-down(sm) {
-      margin: 2em 0;
-    }
-
-    span {
-      font-family: "Ubuntu Light Italic";
-      line-height: 1.5em;
-      font-size: 0.85em;
-    }
-
-    .author {
-      // XX-Large devices (larger desktops)
-      // No media query since the xxl breakpoint has no upper bound on its width
-      width: 10%;
-      border-radius: 50%;
-      margin-left: 1em;
-
-      // X-Large devices (large desktops, less than 1400px)
-      @include media-breakpoint-down(xxl) {
-      }
-
-      // Large devices (desktops, less than 1200px)
-      @include media-breakpoint-down(xl) {
-      }
-
-      // Medium devices (tablets, less than 992px)
-      @include media-breakpoint-down(lg) {
-      }
-
-      // Small devices (landscape phones, less than 768px)
-      @include media-breakpoint-down(md) {
-      }
-
-      // X-Small devices (portrait phones, less than 576px)
-      @include media-breakpoint-down(sm) {
-        width: 7%;
-      }
-    }
   }
 }
 </style>

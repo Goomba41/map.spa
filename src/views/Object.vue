@@ -1,37 +1,92 @@
 <template>
-  <div class="main">
-    <section id="first">
-      <b-container>
-        <header class="major">
-          <h1>{{ pointData.name }}</h1>
-          <div class="shiny">
-            <img
-            :src="require(`../assets/images/` + pointData.cover)"
-            class="cover shadow"
-            :alt="pointData.as"
-            />
-          </div>
-          <h2>
-            {{ pointData.description }}
-          </h2>
-        </header>
-        <div class="signature">
-          <span
-            >{{ pointData.an }} {{ pointData.as }}<br /><font-awesome-icon
-              :icon="['fas', 'calendar-alt']"
-              class="icon"
-            />
-            {{ pointData.cdate }}</span
-          >
+  <section id="content">
+    <b-container>
+      <header class="major">
+        <h1>{{ pointData.name }}</h1>
+        <div class="cover shiny">
           <img
-            :src="require(`../assets/images/` + pointData.ap)"
-            class="author shadow"
+            :src="require(`../assets/images/` + pointData.cover)"
+            class="image shadow"
             :alt="pointData.as"
           />
+          <span class="photo-signature">
+            Автор снимка: Чудиновских Елена Николаевна
+            <sup class="source-link"><a href="#source-1">[1]</a></sup>
+          </span>
         </div>
-      </b-container>
-    </section>
-  </div>
+        <h2>
+          {{ pointData.description }}
+        </h2>
+      </header>
+      <div class="text" v-html="pointData.text"></div>
+      <div class="data">
+        <h3>Данные об объекте:</h3>
+        <ul>
+          <li><a href="#">Источник раз</a></li>
+          <li><a href="#">Источник два</a></li>
+        </ul>
+      </div>
+      <div class="sources">
+        <h3>Источники:</h3>
+        <ol>
+          <li id="source-1">
+            Автор снимка: Чудиновских Е.Н., г. Киров, 2021.
+            <a href="#">(оригинал)</a>
+          </li>
+          <li id="source-2"><a href="#">Источник два</a></li>
+          <li id="source-3"><a href="#">Источник три</a></li>
+        </ol>
+      </div>
+      <div class="authors">
+        <div class="primary">
+          <h3>Автор текста:</h3>
+          <div class="author-signature">
+            <img
+              :src="require(`../assets/images/` + pointData.authorPrimary.ap)"
+              class="author shadow"
+              :alt="pointData.authorPrimary.as"
+            />
+            <span>
+              {{ pointData.authorPrimary.as }}
+              {{ pointData.authorPrimary.an.charAt(0) }}.{{
+                pointData.authorPrimary.apt.charAt(0)
+              }}.
+            </span>
+          </div>
+        </div>
+        <div class="secondary" v-if="pointData.authorSecondary.length">
+          <h3>В соавторстве с:</h3>
+          <div class="test">
+            <div
+            class="author-signature"
+            v-for="coAuthor in pointData.authorSecondary"
+            v-bind:key="coAuthor.id"
+            :id="`signature-` + coAuthor.id"
+            >
+              <img
+              :src="require(`../assets/images/` + coAuthor.ap)"
+              class="author shadow"
+              :alt="coAuthor.as"
+              :id="`popover-` + coAuthor.id"
+              />
+              <b-popover
+                :target="`popover-` + coAuthor.id"
+                triggers="hover focus"
+                placement="bottom"
+                content="Embedding content using properties is easy"
+                :container="`signature-` + coAuthor.id"
+              >
+                {{ coAuthor.as }} {{ coAuthor.an.charAt(0) }}.{{
+                  coAuthor.apt.charAt(0)
+                }}.
+              </b-popover>
+            </div>
+          </div>
+        </div>
+      </div>
+    </b-container>
+    <span class="date">Киров {{ pointData.cdate.substring(0, 4) }}</span>
+  </section>
 </template>
 
 <script>
@@ -74,76 +129,60 @@ header {
   text-align: center;
 }
 
-.cover {
-  border-radius: 5px;
-  margin-bottom: 2.25em;
-  max-height: 400px;
-  object-fit: cover;
+.text {
+  text-align: justify;
 }
 
-.signature {
-  // XX-Large devices (larger desktops)
-  // No media query since the xxl breakpoint has no upper bound on its width
-  margin: 1em 0;
+.date {
+  text-align: center;
+  display: block;
+}
+
+.data,
+.sources {
+  padding-bottom: 2.25em;
+}
+
+.cover {
+  margin-bottom: 2.25em;
+
+  .image {
+    border-radius: 5px;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 1em;
+    width: 95%;
+  }
+  .photo-signature {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    z-index: 100;
+    right: 0px;
+    background: white;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    font-size: 0.5em;
+    user-select: none;
+    text-align: right;
+    line-height: 1.75em;
+    border: lighten(black, 85%) solid 2px;
+  }
+}
+
+.authors {
   display: flex;
-  font-size: 1em;
-  align-items: center;
-  text-align: right;
-  justify-content: flex-end;
-
-  // X-Large devices (large desktops, less than 1400px)
-  @include media-breakpoint-down(xxl) {
-  }
-
-  // Large devices (desktops, less than 1200px)
-  @include media-breakpoint-down(xl) {
-  }
-
-  // Medium devices (tablets, less than 992px)
-  @include media-breakpoint-down(lg) {
-  }
-
-  // Small devices (landscape phones, less than 768px)
-  @include media-breakpoint-down(md) {
-  }
-
-  // X-Small devices (portrait phones, less than 576px)
-  @include media-breakpoint-down(sm) {
-    margin: 2em 0;
-  }
-
-  span {
-    font-family: "Ubuntu Light Italic";
-    line-height: 1.5em;
-    font-size: 0.85em;
-  }
-
-  .author {
-    // XX-Large devices (larger desktops)
-    // No media query since the xxl breakpoint has no upper bound on its width
-    width: 10%;
-    border-radius: 50%;
-    margin-left: 1em;
-
-    // X-Large devices (large desktops, less than 1400px)
-    @include media-breakpoint-down(xxl) {
+  .author-signature {
+    img {
+      width: 20%;
     }
-
-    // Large devices (desktops, less than 1200px)
-    @include media-breakpoint-down(xl) {
-    }
-
-    // Medium devices (tablets, less than 992px)
-    @include media-breakpoint-down(lg) {
-    }
-
-    // Small devices (landscape phones, less than 768px)
-    @include media-breakpoint-down(md) {
-    }
-
-    // X-Small devices (portrait phones, less than 576px)
-    @include media-breakpoint-down(sm) {
-      width: 7%;
+  }
+  .secondary {
+    .author-signature {
+      img {
+        margin: 0;
+        width: 26.3%;
+      }
     }
   }
 }

@@ -324,6 +324,15 @@ textarea {
   opacity: 0;
 }
 
+.source-link {
+  font-size: 0.7em;
+  margin-left: 0.2em;
+}
+
+sup {
+  top: -1em;
+}
+
 @keyframes shine{
   10% {
     opacity: 1;
@@ -341,11 +350,74 @@ textarea {
   }
 }
 
-.signature,
-.author {
+.author-signature {
+  // XX-Large devices (larger desktops)
+  // No media query since the xxl breakpoint has no upper bound on its width
+  margin: 1em 0;
+  display: flex;
+  font-size: 1em;
+  align-items: center;
+  text-align: right;
+  justify-content: flex-start;
+
+  // X-Large devices (large desktops, less than 1400px)
+  @include media-breakpoint-down(xxl) {
+  }
+
+  // Large devices (desktops, less than 1200px)
+  @include media-breakpoint-down(xl) {
+  }
+
+  // Medium devices (tablets, less than 992px)
+  @include media-breakpoint-down(lg) {
+  }
+
+  // Small devices (landscape phones, less than 768px)
+  @include media-breakpoint-down(md) {
+  }
+
+  // X-Small devices (portrait phones, less than 576px)
+  @include media-breakpoint-down(sm) {
+    margin: 2em 0;
+  }
+
+  span {
+    font-family: "Ubuntu Light Italic";
+    line-height: 1.5em;
+    font-size: 0.85em;
+  }
+
   img {
-    // sass-lint:disable no-color-literals
+    // XX-Large devices (larger desktops)
+    // No media query since the xxl breakpoint has no upper bound on its width
+    width: 10%;
+    border-radius: 50%;
+    margin-right: 1em;
+    background-color: white;
+    border: lighten(black, 85%) solid 2px;
+    padding: 0.1em;
     box-shadow: 0 .4rem 1rem rgba(0, 0, 0, .55);
+
+    // X-Large devices (large desktops, less than 1400px)
+    @include media-breakpoint-down(xxl) {
+    }
+
+    // Large devices (desktops, less than 1200px)
+    @include media-breakpoint-down(xl) {
+    }
+
+    // Medium devices (tablets, less than 992px)
+    @include media-breakpoint-down(lg) {
+    }
+
+    // Small devices (landscape phones, less than 768px)
+    @include media-breakpoint-down(md) {
+      width: 15%;
+    }
+
+    // X-Small devices (portrait phones, less than 576px)
+    @include media-breakpoint-down(sm) {
+    }
   }
 }
 
