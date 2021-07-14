@@ -1,13 +1,14 @@
 <template>
   <div id="map-wrapper" class="map-wrapper">
-    <b-input
+    <input
       type="search"
       name="map-search"
       value=""
       class="map-search"
       placeholder="Поиск"
       autocomplete="off"
-      @input="searchRequest"
+      v-model="searchInputValue"
+      @input="searchRequest()"
       @focus="searchResultToggle"
       @blur="searchResultToggle"
     />
@@ -105,13 +106,13 @@ export default {
   props: ["points"],
   methods: {
     latLng,
-    searchRequest(value) {
-      if (value !== "") {
+    searchRequest() {
+      if (this.searchInputValue !== "") {
         var list = [];
         this.points.forEach((element) => {
           if (
-            element.name.toLowerCase().indexOf(value.toLowerCase()) !== -1 ||
-            element.description.toLowerCase().indexOf(value.toLowerCase()) !==
+            element.name.toLowerCase().indexOf(this.searchInputValue.toLowerCase()) !== -1 ||
+            element.description.toLowerCase().indexOf(this.searchInputValue.toLowerCase()) !==
               -1
           ) {
             list.push(element);
@@ -159,6 +160,7 @@ export default {
   },
   data() {
     return {
+      searchInputValue: '',
       geojson: null,
       borderColor: "#4acaa7",
       fillColor: "#4acaa7",
