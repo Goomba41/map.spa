@@ -173,8 +173,8 @@ export default {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-      iconSize: [36, 36],
-      iconAnchor: [18, 0],
+      iconSize: [40, 40],
+      iconAnchor: [22, 0],
       bounds: latLngBounds([
         [56.0607618, 46.2637837],
         [61.0673929, 53.9300112],
@@ -225,87 +225,6 @@ export default {
         };
       };
     },
-    // markers() {
-    //   return [
-    //     {
-    //       // coordinates: latLng(58.6044629110452, 49.66875320602254),
-    //       lat: 58.6044629110452,
-    //       lng: 49.66875320602254,
-    //       name: "Памятник Шаляпину",
-    //       description:
-    //         "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    //       image: "object01.webp",
-    //       id: 1,
-    //       icon: this.iconAttractionPoint,
-    //     },
-    //     {
-    //       // coordinates: latLng(58.60356665580581, 49.66803437400654),
-    //       lat: 58.60356665580581,
-    //       lng: 49.66803437400654,
-    //       name: "Театральная площадь",
-    //       description:
-    //         "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    //       image: "object02.webp",
-    //       id: 2,
-    //       icon: this.iconAttractionPoint,
-    //     },
-    //     {
-    //       // coordinates: latLng(58.59678289009719, 49.68763668964296),
-    //       lat: 58.59678289009719,
-    //       lng: 49.68763668964296,
-    //       name: "Свято-серафимовский собор",
-    //       description:
-    //         "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    //       image: "object06.webp",
-    //       id: 3,
-    //       icon: this.iconChurch,
-    //     },
-    //     {
-    //       // coordinates: latLng(58.61814921582481, 49.66532621669033),
-    //       lat: 58.61814921582481,
-    //       lng: 49.66532621669033,
-    //       name: "Кировский комбинат искусственных кож",
-    //       description:
-    //         "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    //       image: "object03.webp",
-    //       id: 4,
-    //       icon: this.iconIndustry,
-    //     },
-    //     {
-    //       // coordinates: latLng(58.5882952890457, 49.652623274795786),
-    //       lat: 58.5882952890457,
-    //       lng: 49.652623274795786,
-    //       name: "Парк имени Кирова",
-    //       description:
-    //         "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    //       image: "object07.webp",
-    //       id: 5,
-    //       icon: this.iconRecreation,
-    //     },
-    //     {
-    //       // coordinates: latLng(58.605585705325915, 49.685117193521044),
-    //       lat: 58.605585705325915,
-    //       lng: 49.685117193521044,
-    //       name: "Стадион «Динамо»",
-    //       description:
-    //         "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    //       image: "object05.webp",
-    //       id: 6,
-    //       icon: this.iconSport,
-    //     },
-    //     {
-    //       // coordinates: latLng(58.61550599616619, 49.701585956872464),
-    //       lat: 58.61550599616619,
-    //       lng: 49.701585956872464,
-    //       name: "Дымково",
-    //       description:
-    //         "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    //       image: "object04.webp",
-    //       id: 7,
-    //       icon: this.iconVillage,
-    //     },
-    //   ];
-    // },
   },
   async created() {
     axios

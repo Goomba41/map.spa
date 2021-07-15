@@ -8,7 +8,13 @@
       />
       <img
         :src="require(`../assets/images/` + item.icon)"
-        class="shadow sticker"
+        class="shadow sticker sticker-1"
+        alt=""
+      />
+      <img
+        v-if="item.heritage"
+        :src="require('../assets/images/iconHeritage.webp')"
+        class="shadow sticker sticker-2 heritage"
         alt=""
       />
     </a>
@@ -56,6 +62,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@use 'sass:math';
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
@@ -114,18 +121,18 @@ article {
       }
     }
 
-    > img.sticker {
+    @mixin sticker-offset($offset) {
+      $startOffset: -30px;
+
       // XX-Large devices (larger desktops)
       // No media query since the xxl breakpoint has no upper bound on its width
-      border-radius: 100%;
-      position: absolute;
-      z-index: 10;
-      top: -30px;
-      width: 30%;
-      left: -30px;
-      padding: 0.25em;
-      background-color: white;
-      border: solid 1px lighten(black, 85%);
+      &-#{$offset} {
+        left: calc(#{$startOffset} + (#{math.abs($startOffset)} * (#{$offset} - 1)));
+      }
+
+      &.heritage {
+        top: 0px;
+      }
 
       // X-Large devices (large desktops, less than 1400px)
       @include media-breakpoint-down(xxl) {
@@ -137,15 +144,70 @@ article {
 
       // Medium devices (tablets, less than 992px)
       @include media-breakpoint-down(lg) {
-        width: 10%;
-        top: -17px;
-        left: -17px;
+        width: 20%;
+        &-#{$offset} {
+          top: calc(#{$startOffset} / 2 + (#{math.abs($startOffset)} * (#{$offset} - 1)));
+          left: calc(#{$startOffset} / 2 + (#{math.abs($startOffset)} * (#{$offset} - 1)));
+        }
       }
 
       // Small devices (landscape phones, less than 768px)
       @include media-breakpoint-down(md) {
-        top: 0;
-        left: 0;
+        &-#{$offset} {
+          top: calc(#{$startOffset});
+          left: calc(#{$startOffset} / 3 + (#{math.abs($startOffset)}) * (#{$offset} - 1));
+        }
+      }
+
+      // X-Small devices (portrait phones, less than 576px)
+      @include media-breakpoint-down(sm) {
+      }
+    }
+
+    > img.sticker {
+      // XX-Large devices (larger desktops)
+      // No media query since the xxl breakpoint has no upper bound on its width
+      border-radius: 100%;
+      position: absolute;
+      z-index: 10;
+      top: -30px;
+      width: 30%;
+      padding: 0.25em;
+      background-color: white;
+      border: solid 1px lighten(black, 85%);
+
+      @include sticker-offset(1);
+      @include sticker-offset(2);
+      @include sticker-offset(3);
+      @include sticker-offset(4);
+
+      &:hover {
+        z-index: 11;
+      }
+
+      &.heritage {
+        width: 20%;
+      }
+
+      // X-Large devices (large desktops, less than 1400px)
+      @include media-breakpoint-down(xxl) {
+      }
+
+      // Large devices (desktops, less than 1200px)
+      @include media-breakpoint-down(xl) {
+      }
+
+      // Medium devices (tablets, less than 992px)
+      @include media-breakpoint-down(lg) {
+        width: 20%;
+        // top: -17px;
+        // left: -17px;
+      }
+
+      // Small devices (landscape phones, less than 768px)
+      @include media-breakpoint-down(md) {
+        // top: 0;
+        // left: 0;
       }
 
       // X-Small devices (portrait phones, less than 576px)
