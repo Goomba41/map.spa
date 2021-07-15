@@ -111,9 +111,12 @@ export default {
         var list = [];
         this.points.forEach((element) => {
           if (
-            element.name.toLowerCase().indexOf(this.searchInputValue.toLowerCase()) !== -1 ||
-            element.description.toLowerCase().indexOf(this.searchInputValue.toLowerCase()) !==
-              -1
+            element.name
+              .toLowerCase()
+              .indexOf(this.searchInputValue.toLowerCase()) !== -1 ||
+            element.description
+              .toLowerCase()
+              .indexOf(this.searchInputValue.toLowerCase()) !== -1
           ) {
             list.push(element);
           }
@@ -160,7 +163,7 @@ export default {
   },
   data() {
     return {
-      searchInputValue: '',
+      searchInputValue: "",
       geojson: null,
       borderColor: "#4acaa7",
       fillColor: "#4acaa7",
@@ -172,36 +175,6 @@ export default {
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       iconSize: [36, 36],
       iconAnchor: [18, 0],
-      // iconAttractionPoint: icon({
-      //   iconUrl: require("@/assets/images/iconAttractionPoint.webp"),
-      //   iconSize: [36, 36],
-      //   iconAnchor: [18, 0],
-      // }),
-      // iconChurch: icon({
-      //   iconUrl: require("@/assets/images/iconChurch.webp"),
-      //   iconSize: [36, 36],
-      //   iconAnchor: [18, 0],
-      // }),
-      // iconIndustry: icon({
-      //   iconUrl: require("@/assets/images/iconIndustry.webp"),
-      //   iconSize: [36, 36],
-      //   iconAnchor: [18, 0],
-      // }),
-      // iconRecreation: icon({
-      //   iconUrl: require("@/assets/images/iconRecreation.webp"),
-      //   iconSize: [36, 36],
-      //   iconAnchor: [18, 0],
-      // }),
-      // iconSport: icon({
-      //   iconUrl: require("@/assets/images/iconSport.webp"),
-      //   iconSize: [36, 36],
-      //   iconAnchor: [18, 0],
-      // }),
-      // iconVillage: icon({
-      //   iconUrl: require("@/assets/images/iconVillage.webp"),
-      //   iconSize: [36, 36],
-      //   iconAnchor: [18, 0],
-      // }),
       bounds: latLngBounds([
         [56.0607618, 46.2637837],
         [61.0673929, 53.9300112],
@@ -217,7 +190,10 @@ export default {
       },
       showMap: true,
       searchResult: { active: false, results: [] },
-      clusterOptions: { showCoverageOnHover: false },
+      clusterOptions: {
+        showCoverageOnHover: false,
+        removeOutsideVisibleBounds: false,
+      },
       // rmax: 35,
       // iconStyleField: "style_field",
       // colorMap: {

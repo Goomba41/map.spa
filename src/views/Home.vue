@@ -96,7 +96,7 @@
         <div class="last-list">
           <last-item
             :key="item.id"
-            v-for="item in points.slice(0, 3)"
+            v-for="item in lastPoints"
             :item="item"
           ></last-item>
         </div>
@@ -220,6 +220,12 @@ export default {
   components: { Map, "last-item": LastItem },
   mounted() {},
   computed: mapState({
+    lastPoints: (state) =>
+      state.mapPoints
+        .sort(function (a, b) {
+          return b.id - a.id;
+        })
+        .slice(0, 3),
     points: (state) => state.mapPoints,
     authors: (state) => state.authors,
   }),

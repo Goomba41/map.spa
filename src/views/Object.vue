@@ -58,16 +58,16 @@
           <h3>В соавторстве с:</h3>
           <div class="test">
             <div
-            class="author-signature"
-            v-for="coAuthor in pointData.authorSecondary"
-            v-bind:key="coAuthor.id"
-            :id="`signature-` + coAuthor.id"
+              class="author-signature"
+              v-for="coAuthor in pointData.authorSecondary"
+              v-bind:key="coAuthor.id"
+              :id="`signature-` + coAuthor.id"
             >
               <img
-              :src="require(`../assets/images/` + coAuthor.ap)"
-              class="author shadow"
-              :alt="coAuthor.as"
-              :id="`popover-` + coAuthor.id"
+                :src="require(`../assets/images/` + coAuthor.ap)"
+                class="author shadow"
+                :alt="coAuthor.as"
+                :id="`popover-` + coAuthor.id"
               />
               <b-popover
                 :target="`popover-` + coAuthor.id"

@@ -238,6 +238,26 @@ export default new Vuex.Store({
         cdate: "2021-04-01",
         text: "<p>Suspendisse faucibus, nunc et pellentesque egestas<sup class='source-link'><a  href='#source-2'>[2]</a></sup>, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Etiam iaculis nunc ac metus. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum.</p><p>Nunc nonummy metus. Cras ultricies mi eu turpis hendrerit fringilla. Phasellus gravida semper nisi. Nullam cursus lacinia erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus.</p><p>Curabitur blandit mollis lacus. Ut varius tincidunt libero. Cras sagittis. Nullam accumsan lorem in dui. Vivamus euismod mauris.</p><p>Fusce convallis metus id felis luctus adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Etiam sit amet orci eget eros faucibus tincidunt<sup class='source-link'><a href='#source-3'>[3]</a></sup>. Duis leo. Aenean vulputate eleifend tellus.</p><p>Vestibulum volutpat pretium libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Curabitur at lacus ac velit ornare lobortis. Phasellus blandit leo ut odio. Aenean massa.</p>",
       },
+      {
+        lat: 60.63979488077018,
+        lng: 47.344930666271,
+        name: "Преображенская церковь",
+        description:
+          "Vestibulum fringilla pede sit amet augue. Suspendisse non nisl sit amet velit hendrerit rutrum. Duis vel nibh at velit scelerisque suscipit. Nam eget dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+        cover: "object06.webp",
+        id: 11,
+        icon: "iconChurch.webp",
+        authorPrimary: {
+          id: 1,
+          ap: "author01.webp",
+          as: "Чудиновских",
+          an: "Елена",
+          apt: "Николаевна",
+        },
+        authorSecondary: [],
+        cdate: "2021-04-01",
+        text: "<p>Suspendisse faucibus, nunc et pellentesque egestas<sup class='source-link'><a  href='#source-2'>[2]</a></sup>, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Etiam iaculis nunc ac metus. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor. Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum.</p><p>Nunc nonummy metus. Cras ultricies mi eu turpis hendrerit fringilla. Phasellus gravida semper nisi. Nullam cursus lacinia erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus.</p><p>Curabitur blandit mollis lacus. Ut varius tincidunt libero. Cras sagittis. Nullam accumsan lorem in dui. Vivamus euismod mauris.</p><p>Fusce convallis metus id felis luctus adipiscing. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In ac dui quis mi consectetuer lacinia. Etiam sit amet orci eget eros faucibus tincidunt<sup class='source-link'><a href='#source-3'>[3]</a></sup>. Duis leo. Aenean vulputate eleifend tellus.</p><p>Vestibulum volutpat pretium libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Curabitur at lacus ac velit ornare lobortis. Phasellus blandit leo ut odio. Aenean massa.</p>",
+      },
     ],
     authors: [
       {
