@@ -127,7 +127,9 @@ article {
       // XX-Large devices (larger desktops)
       // No media query since the xxl breakpoint has no upper bound on its width
       &-#{$offset} {
-        left: calc(#{$startOffset} + (#{math.abs($startOffset)} * (#{$offset} - 1)));
+        left: calc(
+          #{$startOffset} + (#{math.abs($startOffset)} * (#{$offset} - 1))
+        );
       }
 
       &.heritage {
@@ -146,8 +148,12 @@ article {
       @include media-breakpoint-down(lg) {
         width: 20%;
         &-#{$offset} {
-          top: calc(#{$startOffset} / 2 + (#{math.abs($startOffset)} * (#{$offset} - 1)));
-          left: calc(#{$startOffset} / 2 + (#{math.abs($startOffset)} * (#{$offset} - 1)));
+          top: calc(
+            #{$startOffset} / 2 + (#{math.abs($startOffset)} * (#{$offset} - 1))
+          );
+          left: calc(
+            #{$startOffset} / 2 + (#{math.abs($startOffset)} * (#{$offset} - 1))
+          );
         }
       }
 
@@ -155,7 +161,9 @@ article {
       @include media-breakpoint-down(md) {
         &-#{$offset} {
           top: calc(#{$startOffset});
-          left: calc(#{$startOffset} / 3 + (#{math.abs($startOffset)}) * (#{$offset} - 1));
+          left: calc(
+            #{$startOffset} / 3 + (#{math.abs($startOffset)}) * (#{$offset} - 1)
+          );
         }
       }
 
